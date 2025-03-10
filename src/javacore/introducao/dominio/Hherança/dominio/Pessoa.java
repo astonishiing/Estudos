@@ -1,9 +1,12 @@
 package javacore.introducao.dominio.Hherança.dominio;
 
 public class Pessoa {
-    private String nome;
-    private String cpf;
-    private Endereco endereco;
+    //private String nome;
+    //private String cpf;
+    //private Endereco endereco
+    protected String nome;
+    protected String cpf;
+    protected Endereco endereco;
 
     public void imprime(){
         System.out.println(this.nome);
