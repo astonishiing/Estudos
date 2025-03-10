@@ -1,6 +1,7 @@
 package javacore.introducao.dominio.Hherança.test;
 
 import javacore.introducao.dominio.Hherança.dominio.Endereco;
+import javacore.introducao.dominio.Hherança.dominio.Funcionario;
 import javacore.introducao.dominio.Hherança.dominio.Pessoa;
 
 public class HerançaTeste01 {
@@ -15,5 +16,13 @@ public class HerançaTeste01 {
         pessoa.setEndereco(endereco);
 
         pessoa.imprime();
+
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNome("Oda");
+        funcionario.setCpf("22222");
+        funcionario.setEndereco(endereco);
+        funcionario.setSalario(20000);
+        System.out.println("-----------------");
+        funcionario.imprime();
     }
 }
