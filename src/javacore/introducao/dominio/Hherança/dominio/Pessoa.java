@@ -2,9 +2,13 @@ package javacore.introducao.dominio.Hherança.dominio;
 
 public class Pessoa {
     private String nome;
-    private String cof;
+    private String cpf;
     private Endereco endereco;
-
+    public void imprime(){
+        System.out.println(this.nome);
+        System.out.println(this.cpf);
+        System.out.println(this.endereco.getRua() + " " + this.endereco.getCep());
+    }
     public String getNome() {
         return nome;
     }
@@ -13,12 +17,12 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getCof() {
-        return cof;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCof(String cof) {
-        this.cof = cof;
+    public void setCpf(String cof) {
+        this.cpf = cof;
     }
 
     public Endereco getEndereco() {
