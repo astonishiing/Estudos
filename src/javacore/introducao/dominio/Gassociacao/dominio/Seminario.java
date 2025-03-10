@@ -4,6 +4,7 @@ public class Seminario {
     private String titulo;
     private Aluno[] alunos;
     private Local local;
+
     public Seminario(String titulo) {
         this.titulo = titulo;
     }

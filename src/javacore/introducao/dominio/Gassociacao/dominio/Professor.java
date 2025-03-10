@@ -13,9 +13,9 @@ public class Professor {
         this.especialidade = especialidade;
     }
 
-    public Professor(String especialidade, String nome, Seminario seminarios) {
-        this.especialidade = especialidade;
+    public Professor(String nome, String especialidade, Seminario seminarios) {
         this.nome = nome;
+        this.especialidade = especialidade;
         this.seminarios = seminarios;
     }
 
