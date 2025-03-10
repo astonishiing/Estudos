@@ -7,11 +7,17 @@ import javacore.introducao.dominio.Gassociacao.dominio.Seminario;
 
 public class AssociacaoTeste { // Começar
     public static void main(String[] args) {
-    Local local = new Local("Rauas das laranjeiras");
-    Aluno aluno = new Aluno("Saitama", 17);
-    Professor professor = new Professor("Barba branca", "Pirata", );
-    Aluno[] alunosParaSeminario = {aluno};
-    Seminario seminario = new Seminario("Onde achar one piece", alunosParaSeminario, local);
+        Local local = new Local("Rauas das laranjeiras");
+        Aluno aluno = new Aluno("Saitama", 17);
+        Professor professor = new Professor("Barba branca", "Pirata");
+        Aluno[] alunosParaSeminario = {aluno};
+        Seminario seminario = new Seminario("Onde achar one piece", alunosParaSeminario, local);
+
+        Seminario[] seminariosDisponivei = {seminario};
+
+        professor.setSeminarios(seminariosDisponivei);
+
+        professor.imprime();
     }
 
 
