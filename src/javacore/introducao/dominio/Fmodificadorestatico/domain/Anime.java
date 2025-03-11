@@ -3,7 +3,7 @@ package javacore.introducao.dominio.Fmodificadorestatico.domain;
 public class Anime {
     private String nome;
     private static int[] episodios;
-    // 0 - Bloco  de inicializacao é executado quanto a JVM carregar classes
+    // 0 - Bloco  de inicializacao estático é executado quanto a JVM carregar classes
     // 1 - alocado espaço em memoria pro objeto
     // 2 - Cada atributo de classe é cirado e inicializado com valores default ou o que for passado
     // 3 -Bloco de inicialização é executado
