@@ -2,7 +2,18 @@ package javacore.introducao.dominio.Jmodificadorfinal.dominio;
 
 public class Carro {
     private String nome;
+    //public final double VELOCIDADE_LIMITE = 250;
     public static final double VELOCIDADE_LIMITE = 250;
+    /*
+    * {
+    * VELOCIDA_LIMITE = 250
+    * }
+    *
+    * */
+
+    /* (OR) public Carro() {
+        VELOCIDADE_LIMITE
+    }*/
 
     public String getNome() {
         return nome;
