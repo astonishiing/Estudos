@@ -13,7 +13,7 @@ public class Carro {
 
     /* (OR) public Carro() {
         VELOCIDADE_LIMITE
-    }*/
+    } Nesse caso é apenas se fosse static */
 
     public String getNome() {
         return nome;
