@@ -1,7 +1,13 @@
 package javacore.introducao.dominio.Jmodificadorfinal.dominio;
 
+import javacore.introducao.dominio.Isobrescrita.dominio.Comprador;
+
 public class Carro {
     private String nome;
+    public final Comprador COMPRADOR = new Comprador();
+
+
+
     //public final double VELOCIDADE_LIMITE = 250;
     public static final double VELOCIDADE_LIMITE = 250;
     /*
