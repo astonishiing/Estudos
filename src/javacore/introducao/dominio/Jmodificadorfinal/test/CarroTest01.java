@@ -2,6 +2,7 @@ package javacore.introducao.dominio.Jmodificadorfinal.test;
 
 import javacore.introducao.dominio.Isobrescrita.dominio.Comprador;
 import javacore.introducao.dominio.Jmodificadorfinal.dominio.Carro;
+import javacore.introducao.dominio.Jmodificadorfinal.dominio.Ferrari;
 
 public class CarroTest01 {
     public static void main(String[] args) {
@@ -13,5 +14,8 @@ public class CarroTest01 {
         carro.COMPRADOR.setNome("Kuririn");
         System.out.println(carro.COMPRADOR);
         // System.out.println(carro.VELOCIDADE_LIMITE);
+        Ferrari ferrari = new Ferrari();
+        ferrari.setNome("Enzo");
+        ferrari.imprime();
     }
 }
