@@ -16,14 +16,6 @@ public class Cliente {
         this.tipo = tipo;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "nome='" + nome + '\'' +
-                ", tipo='" + tipo + '\'' +
-                '}';
-    }
-
     public String getNome() {
         return nome;
     }
@@ -38,5 +30,12 @@ public class Cliente {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", tipo='" + tipo + '\'' +
+                '}';
     }
 }
