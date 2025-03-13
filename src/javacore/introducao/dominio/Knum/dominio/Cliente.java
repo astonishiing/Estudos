@@ -1,6 +1,6 @@
 package javacore.introducao.dominio.Knum.dominio;
 
-import javacore.introducao.dominio.Jmodificadorfinal.dominio.TipoCliente;
+import javacore.introducao.dominio.Knum.test.TipoCliente;
 
 public class Cliente {
     public enum TipoPagemento{
