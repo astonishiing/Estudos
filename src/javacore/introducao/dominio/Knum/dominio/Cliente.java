@@ -3,12 +3,17 @@ package javacore.introducao.dominio.Knum.dominio;
 import javacore.introducao.dominio.Jmodificadorfinal.dominio.TipoCliente;
 
 public class Cliente {
+    public enum TipoPagemento{
+        DEBITO, CREDITO
+    }
     private String nome;
     private TipoCliente tipoCliente;
+    private TipoPagemento tipoPagemento;
 
-    public Cliente(String nome, TipoCliente tipoCliente) {
+    public Cliente(String nome, TipoCliente tipoCliente, TipoPagemento tipoPagemento) {
         this.nome = nome;
         this.tipoCliente = tipoCliente;
+        this.tipoPagemento = tipoPagemento;
     }
 
     @Override
@@ -16,6 +21,7 @@ public class Cliente {
         return "Cliente{" +
                 "nome='" + nome + '\'' +
                 ", tipoCliente=" + tipoCliente +
+                ", tipoPagemento=" + tipoPagemento +
                 '}';
     }
 
