@@ -1,9 +1,7 @@
 package javacore.introducao.dominio.Knum.dominio;
 
 public class Cliente {
-    public enum TipoPagemento{
-        DEBITO, CREDITO
-    }
+
     private String nome;
     private TipoCliente tipoCliente;
     private TipoPagemento tipoPagemento;
