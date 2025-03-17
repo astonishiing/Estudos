@@ -12,6 +12,8 @@ public class ClienteTeste01 {
         //Cliente cliente3 = new Cliente("Tsubasa", TipoCliente.PESSOA_FISICA);
         System.out.println(cliente1);
         System.out.println(cliente2);
+        System.out.println(TipoPagemento.DEBITO.calcularDesconto(100));
+        System.out.println(TipoPagemento.CREDITO.calcularDesconto(100));
     }
 
 
