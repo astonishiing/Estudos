@@ -1,5 +1,6 @@
 package javacore.introducao.dominio.Knum.test;
 import javacore.introducao.dominio.Knum.dominio.Cliente;
+import javacore.introducao.dominio.Knum.dominio.TipoCliente;
 
 
 public class ClienteTeste01 {

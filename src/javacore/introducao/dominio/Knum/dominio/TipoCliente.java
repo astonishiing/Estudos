@@ -1,4 +1,4 @@
-package javacore.introducao.dominio.Knum.test;
+package javacore.introducao.dominio.Knum.dominio;
 
 public enum TipoCliente {
     PESSOA_FISICA(1),
