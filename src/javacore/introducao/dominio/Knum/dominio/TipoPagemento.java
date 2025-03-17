@@ -13,7 +13,5 @@ public enum TipoPagemento{
         }
     };
 
-    public double calcularDesconto(double valor){
-            return 0;
-    }
+    public abstract double calcularDesconto(double valor);
 }
