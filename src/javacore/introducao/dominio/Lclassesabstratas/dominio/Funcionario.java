@@ -8,8 +8,10 @@ public abstract class Funcionario {
         super();
         this.nome = nome;
         this.salario = salario;
+        calculaBonus();
     }
 
+    public abstract void calculaBonus();
     /*@Override
     public String toString() {
         return "Funcionario{" +
