@@ -10,11 +10,11 @@ public abstract class Funcionario {
         this.salario = salario;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Funcionario{" +
                 "nome='" + nome + '\'' +
                 ", salario=" + salario +
                 '}';
-    }
+    }*/
 }
