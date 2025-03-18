@@ -3,8 +3,9 @@ package javacore.introducao.dominio.Npolimofismo.servico;
 import javacore.introducao.dominio.Npolimofismo.dominio.Computador;
 import javacore.introducao.dominio.Npolimofismo.dominio.Tomate;
 
-public class CalculaddoraImposto {
-    public void calcularImpostoComputador(Computador computador){
+
+public class CalculadoraImposto {
+    public static void calcularImpostoComputador(Computador computador){
         System.out.println("Relatório de imposto do computador");
         double imposto = computador.calcularImposto();
         System.out.println("Computador: " + computador.getNome());
@@ -12,7 +13,7 @@ public class CalculaddoraImposto {
         System.out.println("Imposto a ser pago: " + imposto);
     }
 
-    public void calcularImpostoTomate(Tomate tomate){
+    public static void calcularImpostoTomate(Tomate tomate){
         System.out.println("Relatório de imposto do Tomate");
         double imposto = tomate.calcularImposto();
         System.out.println("Tomate: " + tomate.getNome());
