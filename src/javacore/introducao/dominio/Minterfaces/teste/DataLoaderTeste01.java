@@ -1,6 +1,7 @@
 package javacore.introducao.dominio.Minterfaces.teste;
 
 import javacore.introducao.dominio.Minterfaces.dominio.teste1.DataBaseLoader;
+import javacore.introducao.dominio.Minterfaces.dominio.teste1.DataLoader;
 import javacore.introducao.dominio.Minterfaces.dominio.teste1.FileLoader;
 
 public class DataLoaderTeste01 {
@@ -15,5 +16,8 @@ public class DataLoaderTeste01 {
 
         dataBaseLoader.checkPermission();
         fileLoader.checkPermission();
+
+        DataLoader.retrieveMaxDataSize();
+        DataBaseLoader.retrieveMaxDataSize();
     }
 }
