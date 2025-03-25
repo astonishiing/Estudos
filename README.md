@@ -128,3 +128,15 @@ Outra forma de escrita querendo colocar algum texto dentro do println usando a c
 ```java
 System out.println( “A idade é: ”+ idade) // Concatenação
 ```
+---
+
+## CASTING
+
+Casting é o processo de converter um tipo de dado em outro em Java. Isso pode ser necessário quando queremos trabalhar com tipos de dados diferentes em uma operação.
+Existem dois tipos de casting em Java:
+
+Casting Implícito (Widening Casting):  Conversão automática de um tipo menor para um maior.
+
+
+
+
