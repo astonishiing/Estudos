@@ -135,8 +135,39 @@ System out.println( “A idade é: ”+ idade) // Concatenação
 Casting é o processo de converter um tipo de dado em outro em Java. Isso pode ser necessário quando queremos trabalhar com tipos de dados diferentes em uma operação.
 Existem dois tipos de casting em Java:
 
-Casting Implícito (Widening Casting):  Conversão automática de um tipo menor para um maior.
+1. Casting Implícito (Widening Casting)
+
+Também chamado de conversão automática, ocorre quando um tipo menor é convertido para um tipo maior sem perda de dados.
+
+**Não ocorre perda de dados**
+
+**byte → short → int → long → float → double**
+
+```java
+public class ExemploCasting {
+    public static void main(String[] args) {
+        int numero = 100;
+        double valor = numero;
+
+        System.out.println(valor);
+    }
+}
+```
 
 
 
+2. Casting Explícito (Narrowing Casting)
+Quando queremos converter um tipo maior para um tipo menor, precisamos forçar a conversão usando parênteses.
 
+**Possivel perda de dados**
+**double → float → long → int → short → byte**
+```java
+public class ExemploCasting {
+    public static void main(String[] args) {
+        double valor = 9.78;
+        int numero = (int) valor;
+
+        System.out.println(numero); 
+    }
+}
+```
