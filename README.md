@@ -276,3 +276,83 @@ int numero01 = 10
   
 - Além do operador básico, Java oferece operadores de atribuição composta que combinam operações aritméticas ou bit a bit com a atribuição.
 
+| Operador | Uso |
+|----------|-------------------------------------------------------------|
+| `<`      | Indica se o valor do operando esquerdo é menor do que o valor do operando direito. |
+| `>`      | Indica se o valor do operando esquerdo é maior do que o valor do operando direito. |
+| `<=`     | Indica se o valor do operando esquerdo é menor ou igual ao valor do operando direito. |
+| `>=`     | Indica se o valor do operando esquerdo é maior ou igual ao valor do operando direito. |
+
+Quando trabalhamos com tipos boolean, utilizamos “is”. Exemplo:
+```java
+boolean isDezMaiorQueVinte = 10 > 20;
+boolean isDezMenorQueVinte = 10 < 20;
+boolean isDezIgualVinte = 10 == 20;
+boolean isDezIgualDez = 10 == 10.0;
+boolean isDezDiferenteDez = 10 != 10;
+
+System.out.println(“Maior que vinte?” + isDezMaiorQueVinte);
+System.out.println(“Menor Que vinte?” + isDezMenorQueVinte);
+System.out.println(“Dez igual a vinte?” + isDezIgualVinte);
+System.out.println(“Dez diferente de Dez?” + isDezDiferenteDez);
+System.out.println(“Dez igual a Dez?” + isDezIgualDez); // Nesse exemplo o resultado sera verdadeiro, pois eles são valores comparáveis
+
+```
+
+## OPERADORES LÓGICOS:
+
+- Precisam trabalhar em conjunto com as estruturas condicionais para fazer mais sentido. **Operadores lógicos retornam boolean:**
+
+| Operador | Nome       | Descrição                                       | Tipo   |
+|----------|-----------|-------------------------------------------------|--------|
+| `and`    | Conjunção  | Retorna `True` se ambos os operandos forem `True`  | Binário |
+| `or`     | Disjunção  | Retorna `True` se pelo menos um dos operandos for `True` | Binário |
+| `not`    | Negação    | Inverte o resultado lógico                     | Unário  |
+
+O tipo do resultado com esses operadores é bool (True ou False)
+
+| Operando 1 | Operando 2 | and  | not(and) |
+|------------|------------|------|---------|
+| True       | True       | True | False   |
+| True       | False      | False | True    |
+| False      | True       | False | True    |
+| False      | False      | False | True    |
+
+Ao usar o operador and (conjunção), quando apenas os dois operandos tiverem o valor True, o resultado da operação será True
+---
+Ao utilizar o operador or (disjunção), quando pelo menos um dos operandos tiver valor True, o resultado da operação será True.
+
+| Operando 1 | Operando 2 | or   | not(or) |
+|------------|------------|------|---------|
+| True       | True       | True | False   |
+| True       | False      | True | False   |
+| False      | True       | True | False   |
+| False      | False      | False | True    |
+
+O operador not (negação) é um operador unário, pois é aplicado em apenas um operando, invertendo o seu valor lógico.
+
+Ex.: AND
+
+```java
+int idade = 35;
+float salario = 3500F;
+boolean isDentroDaLeiMaiorQueTrinta = idade > 30 && salario >= 4612; //Para ser verdadeiro ambas as condições sejam verdade
+boolean isDentroDaLeiMenorQueTrinta = idade < 30 && salario >= 3381;
+System.out.println(“isDentroDaLeiMaiorQueTrinta: ” +  isDentroDaLeiMaiorQueTrinta);
+Sysmte.out.println(“isDentroDaLeiMaiorQueTrinta: ” +  isDentroDaLeiMaiorQueTrinta);
+
+```
+
+Ex.: OR
+
+```java
+double valorTotalContaCorrente = 200;
+double valorTotalContaPoupanca = 10000;
+float valorPlaystation = 5000F;
+
+boolean isPlaystationCincoCompravel = valorTotalContaCorrente > valorPlaystation || valorTotalContaPoupanca > valorPlaystation;
+System.out.println(“isPlaystationCincoCompravel” + isPlaystationCincoCompravel);
+
+```
+
+
