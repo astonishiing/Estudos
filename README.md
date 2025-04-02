@@ -215,3 +215,57 @@ if (animal instanceof Cachorro) {
 Resumindo, o upcasting ocorre automaticamente e é seguro, enquanto o downcasting precisa ser realizado com cuidado para evitar exceções. O uso do operador instanceof ajuda a garantir que a conversão seja feita com segurança.
 
 O casting de objetos em Java permite aos programadores manipularem referências de objetos e acessar métodos específicos, mas deve ser usado com cautela para evitar exceções em tempo de execução.
+
+## STRING
+
+No Java, String é uma classe usada para representar sequências de caracteres.
+
+Ela faz parte do pacote java.lang, o que significa que pode ser usada sem precisar de importação;  String é chamada de tipo de referencia  (refences type);7
+
+<ins>Características principais da String:</ins>
+
+1. Imutável – Uma vez criada, uma String não pode ser alterada.
+
+2. Armazenada no String Pool – Para otimizar o uso de memória.
+
+3. Fornece vários métodos para manipulação de texto (como length(), substring(), replace(), etc.).
+
+## OPERADORES ARITMÉTICOS
+
+Os operadores aritméticos em Java são usados para realizar cálculos matemáticos, como adição, subtração, multiplicação e divisão. Eles operam sobre valores numéricos e retornam um resultado numérico. O operador + é sobrecarregado; 
+
+O resultado de operações entre valores inteiros sempre resultará um valor inteiro;
+
+Exemplo de código:
+```java
+int numero01 = 10
+	int numero02 =  20
+	System.out.println(“Valor” + numero01+numero02);
+	// Nesse caso o sinal +, será de concatenação e não mais de adição
+
+```
+
+Outros exemplos:
+```java
+int numero01 = 10
+	int numero02 =  20
+	System.out.println(numero01+numero02);
+	//Nesse caso o sinal +, vai ser de soma, ou seja, usado para uma operação aritmética
+
+int numero01 = 10
+	int numero02 =  20
+	System.out.println(numero01+numero02+”Valor”);
+	//Nesse caso o sinal +, será se soma, porque as variaveis estão sendo as primeiras a serem chamadas
+
+int numero01 = 10
+	int numero02 =  20
+	double resultado = numero01 / numero02
+	System.out.println(resultado);
+	//Caso você execute, irar ver que o resultado entre essa operação é 0.0, pois está dividindo dois números inteiros. Se quisermos ver o resultado 0.5 na tela, basta trocar a variavel int numero02 para double. Vejamos abaixo:
+
+int numero01 = 10
+	double numero02 =  20
+	double resultado = numero01 / numero02
+	System.out.println(resultado);
+```
+
