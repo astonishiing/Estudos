@@ -269,3 +269,10 @@ int numero01 = 10
 	System.out.println(resultado);
 ```
 
+## OPERADORES RELACIONAIS: 
+- Os operadores relacionais comparam dois operandos e determinam a validade de um relacionamento. A tabela a seguir descreve os quatro operadores relacionais:
+
+- São utilizados principalmente na etapa de processamento - para a construção da lógica - possibilitando realizar ações específicas sobre os dados. Adição, subtração, multiplicação, comparação são apenas alguns exemplos.
+  
+- Além do operador básico, Java oferece operadores de atribuição composta que combinam operações aritméticas ou bit a bit com a atribuição.
+
