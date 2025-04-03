@@ -355,4 +355,126 @@ System.out.println(“isPlaystationCincoCompravel” + isPlaystationCincoComprav
 
 ```
 
+## ESTRUTURAS DE REPETIÇÃO
 
+1. For: Ideal para quando sabemos exatamente quantas vezes queremos repetir um bloco de código. Ele utiliza uma variável contadora que é inicializada, testada e atualizada a cada iteração; O laço for é ideal para situações em que o número de iterações é conhecido
+
+2. While: Executa um bloco de código enquanto uma condição específica for verdadeira. A condição é testada antes de cada iteração, o que significa que o bloco de código pode não ser executado nenhuma vez se a condição inicial for falsa;  o while é usado quando a condição deve ser avaliada antes da execução do bloco de código
+
+3. Do-while: Similar ao while, mas com uma diferença crucial: o bloco de código é executado pelo menos uma vez, pois a condição é testada após a execução do bloco; e o do-while garante que o bloco seja executado pelo menos uma vez, mesmo que a condição seja falsa.
+
+### For
+
+O laço for é utilizado quando sabemos de antemão quantas vezes queremos executar um bloco de código. A estrutura do for inclui uma inicialização, uma condição e uma atualização. Vamos ver um exemplo prático:
+
+Quando utilizamos o for, precisamos de uma variável para auxiliar a controlar a quantidade de repetições a serem executadas. Essa variável é chamada de variável de controle e é declarada no primeiro argumento do for.
+
+O segundo argumento do for é utilizado para definir até quando o for será executado. Geralmente, trata-se de uma condição booleana em cima da variável de controle.
+
+O terceiro argumento indica o quanto a variável de controle será modificada no final de cada execução dentro do for.
+
+```java
+for (<variável de controle>, <análise da variável de controle>, <incremento da variável de controle>) {
+    // Código a ser executado
+}
+
+```
+
+```java
+public class Exemplo{
+	public static void main(String[] args){
+		for(int i = 1; i <= 20; i++){
+		System.out.println(i + “- Carneiros”);
+		}
+	}
+}
+
+```
+
+Isso acontece porque:
+
+- A variável de controle, que chamamos de “i”, tem seu valor inicial como 0;
+
+- No segundo bloco, onde escrevemos “i <= 10”, estamos dizendo que o conteúdo do for será executado enquanto o valor de i for menor ou igual a 10;
+
+- Com o terceiro bloco definido como “i++”, estamos dizendo que, no fim de cada execução do for, o conteúdo de “i” será incrementado em 1 unidade. Isso quer dizer que, no fim da primeira execução, i irá de 0 para 1; na segunda execução, irá de 1 para 2, e assim por diante;
+
+- Com isso, o conteúdo do for será executado por 11 vezes, já que o i é iniciado em 0. A saída do código acima mostra que a mensagem foi escrita por 11 vezes, onde o “i” variou de 0 até 10.
+
+- Neste exemplo, o programa imprime números de 1 a 20. A variável i é inicializada com 1, a condição verifica se i é menor ou igual a 20, e a atualização incrementa i em 1 a cada iteração.
+
+- Um ponto importante sobre o for é que, por causa da utilização da variável de controle, geralmente ele é utilizado quando sabemos exatamente quantas vezes queremos repetir a execução do trecho de código.
+
+While
+
+O laço while é mais adequado quando não sabemos quantas vezes o bloco de código precisará ser executado. A condição é testada antes de cada iteração.
+
+O while também é uma estrutura de repetição, assim como o for. A diferença entre ambas é que, enquanto usamos o for quando geralmente conhecemos a quantidade de vezes que o trecho de código deverá ser repetido, nós utilizamos o while quando não sabemos exatamente quantas vezes o código será repetido.
+
+```java
+while (<condição>) {
+    // Trecho de código a ser repetido
+}
+
+```
+
+Perceba que a condição para interrupção da repetição do trecho dentro do while se dá através de uma condição booleana.
+
+```java
+public class Exemplo{
+public static void main(String[] args){
+	int i = 0
+		while(i < 10){
+		System.out.println(testes + i);
+		i++
+		}
+	}
+}
+```
+
+Neste exemplo, o laço imprime números de 0 a 9. A variável i é incrementada em 1 a cada iteração, e a condição i < 10 é testada antes de cada execução do bloco.
+
+Do-while
+O laço do-while garante que o bloco de código será executado pelo menos uma vez, independentemente da condição inicial.
+
+```java
+public class Main{
+    public static void main(String[] args){
+        int i = 0;
+        do{
+            System.out.println(i + “Celulares”);
+            i++;
+        }while(i < 10);
+    }
+```
+	
+Neste exemplo, o bloco de código dentro do do é executado primeiro e, em seguida, a condição i < 10 é testada. Se for verdadeira, o bloco é executado novamente.
+
+## Laço for-each em Java
+
+O for-each é uma estrutura de repetição em Java projetada para iterar sobre elementos de arrays e coleções de forma simplificada. Ele é ideal quando precisamos percorrer todos os elementos de uma lista sem a necessidade de um índice de controle.
+
+A principal vantagem do for-each é sua **sintaxe enxuta e legibilidade**, reduzindo a possibilidade de erros ao acessar elementos diretamente. No entanto, ele não permite **modificar a estrutura da coleção** enquanto está sendo percorrida.
+
+### Como usar laços de repetição em Java
+Os laços de repetição são usados em diversas situações na programação. Aqui estão algumas dicas sobre como os utilizar efetivamente:
+
+**Escolha o laço certo:** Use for quando souber exatamente quantas vezes o bloco de código deve ser executado. Use while ou do-while quando a quantidade de repetições depender de uma condição dinâmica.
+
+**Evite loops infinitos:** Certifique-se de que a condição de término será eventualmente atendida. Um loop infinito pode travar o programa.
+
+**tilize break e continue quando necessário:** O comando break pode ser usado para sair de um loop antecipadamente, enquanto continue pode ser usado para pular a iteração atual e continuar com a próxima.
+
+<ins>Boas práticas ao utilizar laços de repetição</ins>
+Os laços de repetição são fundamentais para a programação, mas seu uso inadequado pode levar a desempenho ineficiente, loops infinitos e código difícil de entender. Aqui estão algumas boas práticas para garantir que seus loops sejam eficientes e bem estruturados.
+
+**1. Evite loops infinitos:**
+Loops infinitos podem travar a aplicação e consumir recursos desnecessários. Certifique-se de que há uma condição de parada clara.
+
+**2. Escolha o laço correto para cada situação:**
+Cada laço tem um propósito específico. Escolha o mais adequado para o problema que está resolvendo.
+
+**Use for quando souber o número exato de iterações.
+Use while quando a condição de repetição for baseada em um evento externo.
+Use do-while quando precisar garantir que o bloco de código execute pelo menos uma vez.
+Use for-each para percorrer listas de forma simples.**
