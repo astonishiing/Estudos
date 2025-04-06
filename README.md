@@ -679,3 +679,56 @@ No segundo conjunto de fors aninhados o rótulo foi localizado antes do bloco. C
 
 Em ambos os casos o texto “i = 1 e j = 1” não é exibido. Mas no segundo o computador continua as próximas iterações do loop. Tome um tempo para analisar o código e o resultado.
 
+## O Comando continue
+
+O continue, assim como o break, influência a progressão de uma estrutura de repetição. Quando o continue é encontrado no bloco do loop, todas as declarações seguintes (que ainda estão dentro do bloco) são ignoradas, e a próxima iteração é iniciada.
+
+```java
+for( int i = 1; i <= 10; i++){
+  if (i == 5) continue; // Começa a próxima iteração.
+  System.out.print(i + " "); // Será ignorado quando i = 5
+}
+```
+
+Normalmente, o loop no fragmento acima exibiria todos os números de 1 até 10. Contudo, quando i contém 5, o comando continue é executado, o que finaliza a iteração atual e inicia a próxima. É importante notar que os parâmetros do loop ainda são respeitados, de modo que a próxima iteração somente acontece se a condição for satisfeita. Se por acaso a iteração for a última, então o loop é terminado, e a execução do programa continua da linha após a declaração.
+
+RESULTADO:
+
+```
+1 2 3 4 6 7 8 9 10
+```
+
+Usando continue com Rótulos:
+
+Também podemos usar rótulos com o comando continue, Ele é útil para sair de loops aninhados enquanto mantem a execução do loop rotulado. O resultado é praticamente o mesmo que o do comando break quando este é colocado antes do bloco de uma estrutura de repetição.
+
+```java
+// Rótulo aparece antes da declaração
+loop1: 
+for (int i = 0; i <= 3; i++) {
+  for (int j = 0; j <= 2; j++) {
+    if (i == 1 && j == 1) continue loop1; // Pula para a próxima iteração do loop1
+      System.out.println("i = " + i + " e j = " + j);
+    }
+  }
+}
+```
+
+Quando ambos i e j são 1 a execução do programa deve continuar da próxima iteração do loop1.
+
+RESULTADO:
+
+```
+i = 0 e j = 0
+i = 0 e j = 1
+i = 0 e j = 2
+i = 1 e j = 0
+i = 2 e j = 0
+i = 2 e j = 1
+i = 2 e j = 2
+i = 3 e j = 0
+i = 3 e j = 1
+i = 3 e j = 2
+```
+
+
