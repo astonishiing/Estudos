@@ -478,3 +478,204 @@ Cada laço tem um propósito específico. Escolha o mais adequado para o problem
 Use while quando a condição de repetição for baseada em um evento externo.
 Use do-while quando precisar garantir que o bloco de código execute pelo menos uma vez.
 Use for-each para percorrer listas de forma simples.**
+
+## Como usar laços de repetição em Java?
+
+- Os laços de repetição são usados em diversas situações na programação. Aqui estão algumas dicas sobre como os utilizar efetivamente:
+
+- **Escolha o laço certo:** Use for quando souber exatamente quantas vezes o bloco de código deve ser executado. Use while ou do-while quando a quantidade de repetições depender de uma condição dinâmica.
+
+- **Evite loops infinitos:** Certifique-se de que a condição de término será eventualmente atendida. Um loop infinito pode travar o programa.
+
+- **Utilize break e continue quando necessário:** O comando break pode ser usado para sair de um loop antecipadamente, enquanto continue pode ser usado para pular a iteração atual e continuar com a próxima.
+
+## Boas práticas ao utilizar laços de repetição
+
+Os laços de repetição são fundamentais para a programação, mas seu uso inadequado pode levar a **desempenho ineficiente, loops infinitos e código difícil de entender.** Aqui estão algumas boas práticas para garantir que seus loops sejam eficientes e bem estruturados.
+
+### 1. Evite loops infinitos:
+
+Loops infinitos podem travar a aplicação e consumir recursos desnecessários. Certifique-se de que há uma condição de parada clara.
+
+### 2. Escolha o laço correto para cada situação:
+
+Cada laço tem um propósito específico. Escolha o mais adequado para o problema que está resolvendo.
+
+**- Use for quando souber o número exato de iterações.**
+
+**- Use while quando a condição de repetição for baseada em um evento externo.**
+
+**- Use do-while quando precisar garantir que o bloco de código execute pelo menos uma vez.**
+
+**- Use for-each para percorrer listas de forma simples.**
+
+**3. Evite modificações diretas em coleções dentro de loops**
+
+Se precisar remover itens de uma lista dentro de um loop, use um iterador para evitar ConcurrentModificationException.
+
+<ins>Correção usando um iterador:</ins>
+
+```java
+Iterator<String> iterator = nomes.iterador();
+while (iterator.hasNext()){
+    if(iterator.next().equals("Carlos")){
+            iterator.remove();    
+        }
+}
+```
+
+**4. Sempre inicialize variáveis corretamente:**
+   
+Variáveis de controle mal inicializadas podem gerar comportamentos inesperados nos loops.
+
+**5. Prefira loops otimizados para grandes volumes de dados:**
+
+Se estiver lidando com grandes quantidades de dados, utilize streams e paralelismo para otimizar o processamento.
+
+**Exemplo usando Stream API:**
+
+```java
+List<Integer> numeros = Array.asList(1,2,3,4,5);
+numeros.stream().forEach(System.out::println);
+```
+
+Seguindo essas boas práticas, você garante que seus laços de repetição **sejam eficientes, seguros e fáceis de manter**. Ao aplicar esses conceitos no seu código, você evita **erros comuns** e **melhora a performance das suas aplicações Java.**
+
+Em conclusão, os laços de repetição em Java permitem a execução repetida de um bloco de código. Compreender como e quando usar for, while e do-while pode tornar seu código mais eficiente e claro. 
+
+Portanto, é importante lembrar sempre de escolher o laço adequado para a sua necessidade e evitar loops infinitos. Com prática, você será capaz de utilizar esses conceitos de maneira eficaz em seus projetos de programação.
+
+## Java - Break e Continue
+
+É possível interromper a execução de uma estrutura de repetição a força, ignorando completamente qualquer código remanescente ou mesmo a condição que controla quando o loop termina, usando o comando break. Sempre que o comando break é encontrado, o loop é finalizado e a execução do programa continua da próxima linha após a estrutura de repetição em questão.
+
+O programa abaixo deveria exibir todos os números entre 0 e 100 pulando de 2 em 2. Contudo, assim que a variável cont chegar a 20 nós usamos o comando break para parar a execução daquele loop imediatamente.
+
+```java
+for (int cont = 0; cont <= 100; cont += 2){
+  System.out.print(cont + " ");
+  
+  // Para o loop quando cont = 20
+  if (cont == 20) break;
+}
+
+System.out.println("- Estamos fora do loop!");
+```
+RESULTADO:
+
+```
+0 2 4 6 8 10 12 14 16 18 20 - Estamos fora do loop
+```
+
+Perceba que assim que cont passa a armazenar o valor 20 o teste da estrutura de decisão if da verdadeiro e então o comando break é lido. O loop para, e o comando System.out.println, que está logo após o loop, é executado.
+
+É importante notar que, em caso de loops aninhados apenas o mais interno é finalizado. Como no fragmento abaixo:
+
+```java
+for (int i = 0; i < 3; i++) {
+  System.out.println("Contador do loop externo: " + i);
+  System.out.print("    Contador do loop interno: ");
+
+  for (int j = 0; j <= 100; j += 2) {
+    System.out.print(j + " ");
+    
+    // Finaliza o Loop se j = 20
+    if (j == 20) break;
+  
+  }
+  System.out.println(); // Apenas pula uma linha
+}
+        
+System.out.println("Loop finalizado!");
+```
+
+RESULTADO:
+
+```
+Contador do loop externo: 0
+    Contador do loop interno: 0 2 4 6 8 10 12 14 16 18 20 
+Contador do loop externo: 1
+    Contador do loop interno: 0 2 4 6 8 10 12 14 16 18 20 
+Contador do loop externo: 2
+    Contador do loop interno: 0 2 4 6 8 10 12 14 16 18 20 
+Loop finalizado!
+```
+
+### Usando break com Rótulos
+
+A forma estendida é break <rótulo>, onde <rótulo> deve ser substituído por uma sequência de caracteres que identifica um bloco de código ou uma estrutura de repetição. Quando esse comando é executado, o computador continua a execução do programa a partir da primeira instrução que vem depois do bloco ou estrutura indicada.
+
+É importante destacar que o bloco de código, que é delimitado por { e }, deve englobar o comando break, mesmo que não diretamente. Por esse motivo, a forma estendida do break pode ser usada para sair de um ou mais blocos aninhados (que estão um dentro do outro), como veremos em nosso exemplo.
+
+```java
+for (int i = 1; i <= 2; i++) {
+  System.out.println("\n i é " + i);
+  um: { 
+    dois: {
+      if (i == 1) break um; // Retorna para o bloco rotulado um
+      if (i == 2) break dois; // Volta para o bloco rotulado dois
+      
+      // A instrução abaixo não será executada.
+      System.out.println("Não será executada.");
+    }
+    // A linha abaixo está dentro do bloco um.
+    System.out.println("Depois do bloco dois.");
+  }
+  System.out.println("Depois do bloco um.");
+}
+```
+
+No fragmento acima temos uma estrutura de repetição que conta de 1 a 2. Dentro dessa repetição nós temos dois blocos, que foram rotulados com os nomes um e dois. Dentro do bloco dois existe temos duas estruturas de decisão if, que determinam, nesse caso, para fora de qual bloco a execução do programa deve seguir,
+
+O primeiro if compara o valor de i com 1, e caso haja uma correspondência a execução pula para fora do bloco um. Nesse caso, o a instrução que imprime “Depois do bloco um.” na tela é executada.
+
+O segundo if compara o valor de i com 2 e, caso haja correspondência, o comando break dois é executado, fazendo o computador sair do bloco com rótulo dois. Ao sair do bloco dois, a próxima instrução imprime “Depois do bloco dois.” na tela. Depois dessa execução, todas as instruções do bloco um estão finalizadas, então o andamento do programa continua da próxima linha logo após o bloco um, que se trata da instrução que imprime “Depois do bloco um.”
+
+
+RESULTADO:
+
+i é 1
+Depois do bloco um.
+
+ i é 2
+Depois do bloco dois.
+Depois do bloco um.
+
+O rótulo pode identificar um bloco independente, como os usados no exemplo anterior, ou um bloco que faz parte da estrutura de um comando, como o while por exemplo. O rótulo pode estar antes do comando ou antes do bloco, como mostra o fragmento a seguir.
+
+```java
+// Rótulo aparece antes da declaração
+loop1: 
+for (int i = 0; i <= 3; i++) {
+  for (int j = 0; j <= 2; j++) {
+    if (i == 1 && j == 1) break loop1; // Pula para fora do loop.
+    System.out.println("i = " + i + " e j = " + j);
+  }
+}
+        
+System.out.println();
+System.out.println("Depois do loop1.");
+System.out.println();
+        
+// Rótulo aparece antes da declaração
+for (int i = 0; i <= 3; i++)
+loop2: {
+  for (int j = 0; j <= 2; j++) {
+    if (i == 1 && j == 1) break loop2; // Pula para fora do loop.
+                
+    System.out.println("i = " + i + " e j = " + j);
+  }
+}
+         
+System.out.println();
+System.out.println("Depois do loop2.");
+System.out.println();
+
+```
+
+Nesse programa existe duas partes que possuem mais ou menos a mesma estrutura, com exceção da localização do rótulo. No primeiro conjunto de fors aninhados o rótulo foi localizado antes do comando. Com essa organização, quando o comando break loop1 é executado todas as iterações do loop1 são ignoradas e a execução do programa continua da próxima linha após o loop.
+
+No segundo conjunto de fors aninhados o rótulo foi localizado antes do bloco. Com essa organização, quando o comando break loop2 é lido a iteração atual do loop2 é finalizada, e a próxima é iniciada.
+
+Em ambos os casos o texto “i = 1 e j = 1” não é exibido. Mas no segundo o computador continua as próximas iterações do loop. Tome um tempo para analisar o código e o resultado.
+
