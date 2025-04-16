@@ -102,6 +102,18 @@ Tipos Numéricos de Ponto Flutuante: São usados para armazenar números com cas
 ---
 Tipo Caractere: Armazena um único caractere. (Usa-se a tradução de acordo com a tabela ASCII ou usa a tabela Unicode; char caractere = ‘\u0041’; char caractere = 64);
 
+```java
+public class Exemplo {
+    public static void main(String[] args) {
+        char variavelChar = 'A';
+        char character = 65;
+
+        System.out.println('\u0041');
+        System.out.println(variavelChar);
+        System.out.println(character);
+    }
+}
+```
 ---
 Tipo Booleano: Usado para armazenar valores verdadeiro ou falso
 
