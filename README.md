@@ -230,6 +230,30 @@ O casting de objetos em Java permite aos programadores manipularem referências 
 
 ## STRING
 
+Em Java, String é uma sequência de caracteres utilizada para representação e manipulação de texto. Quando é necessário representar informações textuais em uma aplicação, seja ela para Desktop ou Web, instâncias da classe String serão criadas invariavelmente. Isto é, sempre que precisarmos mostrar alguma informação em um sistema, dificilmente vamos conseguir isso sem o auxílio de Strings.
+
+### Como utilizar Strings em Java
+
+A classe String permite a criação de suas instâncias de diversas maneiras. Ela possui vários construtores que recebem diversos tipos de parâmetros. Pelo fato de ser uma classe amplamente utilizada, ela também fornece um “atalho” para a criação de forma mais rápida de seus objetos
+
+```java
+1 package principal;
+2
+3 public class ClassePrincipal {
+4
+5   public static void main(String[] args) {
+6     String minhaString1 = new String();
+7     minhaString1 = "Java";
+8     String minhaString2 = "Java";
+9     String minhaString3 = new String("Java");
+10    String minhaString4 = "";
+11
+12    char[] meusChars = new char[] {'J','a','v','a'};
+13    String minhaString5 = new String(meusChars);
+14  }
+15 }
+```
+
 No Java, String é uma classe usada para representar sequências de caracteres.
 
 Ela faz parte do pacote java.lang, o que significa que pode ser usada sem precisar de importação;  String é chamada de tipo de referencia  (refences type);7
@@ -241,6 +265,8 @@ Ela faz parte do pacote java.lang, o que significa que pode ser usada sem precis
 2. Armazenada no String Pool – Para otimizar o uso de memória.
 
 3. Fornece vários métodos para manipulação de texto (como length(), substring(), replace(), etc.).
+
+
 
 ## OPERADORES ARITMÉTICOS
 
