@@ -254,6 +254,18 @@ A classe String permite a criação de suas instâncias de diversas maneiras. El
 15 }
 ```
 
+**Linha 6:** A classe String, assim como qualquer classe em Java, pode ser instanciada com a utilização da palavra chave new. Neste caso, está sendo criado um objeto String vazio que é atribuído à variável de referência minhaString1;
+
+**Linha 7:** A variável minhaString1 recebe o valor “Java”. Como a variável já foi declarada na linha anterior, neste momento acontece apenas a atribuição do conteúdo à variável;
+
+**Linha 8:** Representa a maneira mais rápida e fácil de criar um novo objeto desta classe e atribuí-lo a uma variável (no caso, minhaString2);
+
+**Linha 9:** Há diversos construtores na classe String. Esta linha demonstra a utilização de um deles: passar um objeto String no construtor de modo a criar um novo objeto String. Com relação à criação de objetos na memória, há uma diferença considerável no modo como as linhas 8 e 9 o fazem.
+
+**Linha 10:** Aqui uma String vazia é criada utilizando-se o mesmo mecanismo de “atalho” que foi demonstrado na linha 8, só que o conteúdo para o qual aponta a variável minhaString4 é uma String vazia. Pode-se dizer que, com relação ao conteúdo, as linhas 6 e 10 fazem a mesma coisa: criam uma String vazia;
+
+**Linhas 12 e 13:** Como já foi comentado neste artigo, a classe String possui diversos construtores. Não cabe aqui tentarmos demonstrar a utilização de cada um deles. Estas duas linhas demonstram mais um exemplo de como podemos criar objetos String a partir de outros objetos passados como parâmetro no construtor. A variável minhaString5 tem o mesmo conteúdo das variáveis minhaString1, minhaString2 e minhaString3, porém foi inicializada de uma maneira diferente das demais, recebendo um array de char.
+
 No Java, String é uma classe usada para representar sequências de caracteres.
 
 Ela faz parte do pacote java.lang, o que significa que pode ser usada sem precisar de importação;  String é chamada de tipo de referencia  (refences type);7
