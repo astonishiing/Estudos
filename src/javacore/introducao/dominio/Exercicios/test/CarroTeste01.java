@@ -7,9 +7,15 @@ public class CarroTeste01 {
         Carro carro = new Carro();
         Carro carroNovo = new Carro();
 
-        carroNovo.nome = "Lambo";
-        carroNovo.modelo = "Aventador";
-        carroNovo.ano = 2010;
+        carroNovo.nome = "Ferrai";
+        carroNovo.modelo = "Spider";
+        carroNovo.ano = 2000;
+
+        carro.nome = "Lambo";
+        carro.modelo = "Aventador";
+        carro.ano = 2010;
+
+        carro = carroNovo;
 
         System.out.println("Carro 1");
         System.out.println(carro.ano + " " + carro.nome + " " + carro.modelo);
