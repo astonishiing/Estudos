@@ -1,10 +1,10 @@
 package javaintroducao.Aintroducaoclasses.test;
 
-import javaintroducao.Aintroducaoclasses.dominio.Estudante;
+import javaintroducao.Aintroducaoclasses.dominio.Estudante01;
 
 public class EstudanteTest01 {
     public static void main(String[] args) {
-        Estudante estudante = new Estudante();
+        Estudante01 estudante = new Estudante01();
         estudante.nome = "Luffy";
         estudante.idade = 21;
         estudante.sexo = 'M';
