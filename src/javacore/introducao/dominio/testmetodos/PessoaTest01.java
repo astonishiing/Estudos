@@ -1,4 +1,4 @@
-package javacore.introducao.dominio.test;
+package javacore.introducao.dominio.testmetodos;
 
 import javacore.introducao.dominio.metodos.Pessoa;
 
