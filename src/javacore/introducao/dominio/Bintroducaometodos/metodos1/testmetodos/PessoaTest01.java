@@ -1,6 +1,6 @@
-package javacore.introducao.dominio.testmetodos;
+package javacore.introducao.dominio.Bintroducaometodos.metodos1.testmetodos;
 
-import javacore.introducao.dominio.metodos.Pessoa;
+import javacore.introducao.dominio.Bintroducaometodos.metodos1.Pessoa;
 
 public class PessoaTest01 {
     public static void main(String[] args) {

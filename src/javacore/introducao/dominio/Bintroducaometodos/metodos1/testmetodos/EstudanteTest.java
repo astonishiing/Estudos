@@ -1,4 +1,4 @@
-package javacore.introducao.dominio.testmetodos;
+package javacore.introducao.dominio.Bintroducaometodos.metodos1.testmetodos;
 
 import javacore.introducao.dominio.Estudante;
 
