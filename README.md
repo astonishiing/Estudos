@@ -780,5 +780,84 @@ i = 3 e j = 0
 i = 3 e j = 1
 i = 3 e j = 2
 ```
+## MÉTODOS
 
+Quando definimos um objeto num programa orientado a objetos, implementamos todo o comportamento desse objeto em um ou mais métodos.
 
+Um método em Java é equivalente a uma função, subrotina ou procedimento em outras linguagens de programação.
+
+Não existe em Java o conceito de métodos globais. Todos os métodos devem sempre ser definidos dentro de uma classe.
+
+A sintaxe para construção de um método é a seguinte:
+```java
+[modificador] tipo_retorno identificador ([argumentos]) {
+
+//Corpo do método
+
+}
+```
+
+### Modificadores de Acesso
+
+Java controla o acesso a atributos e métodos através do uso dos modificadores de acesso. São eles:
+
+public : É o menos restritivo de todos. Atributos e métodos declarados como public
+em uma classe podem ser acessados pelos métodos da própria classe, por classes
+derivadas desta e por qualquer outra classe em qualquer outro pacote.
+
+protected : Atributos e métodos definidos como protected são acessíveis pelos
+métodos da própria classe e pelas classes derivadas.
+
+private : É o mais restritivo. Atributos e métodos declarados como private só podem ser acessados pelos métodos da própria classe.
+
+Quando nenhum modificador é definido (acesso do tipo “package”), os atributos e
+métodos podem ser acessados pelos métodos da própria classe, pelas classes derivadas e por qualquer outra classe dentro do mesmo pacote.
+
+É importante destacar que esse controle não se aplica às variáveis locais aos métodos.
+
+### Nome de Métodos
+
+O nome de um método deve começar com uma letra (a-z/A-Z), um underscore (_), ou um sinal de dólar ( $ ). Os caracteres subsequentes podem incluir os dígitos de 0 a 9.
+
+**Convenção** : Use verbos para nome de métodos. Faça a primeira letra do nome
+minúscula com cada letra inicial interna maiúscula. Por exemplo : getUserName(),
+getMaxPrice().
+
+### Argumentos
+
+Um método pode ter zero ou mais argumentos (ou parâmetros).
+
+Caso não tenha argumentos, é necessário informar os parênteses vazios tanto na
+definição como na chamada do método.
+
+O nome do método acrescido de seus parâmetros é denominado assinatura do
+método.
+
+Cada argumento deve ser declarado como define-se uma variável, especificando o
+seu tipo e nome.
+
+Caso seja mais de um argumento, cada declaração deve estar separada por vírgula.
+
+### Retornando Valor a Partir de um Método
+
+É possível associar um valor de retorno a um método. Para isso, é preciso definir, na frente do nome do método, o tipo do valor a ser retornado. O tipo pode ser um primitivo ou então uma classe ou interface. Caso o método não retorne valor algum, é obrigatória a utilização do tipo void na assinatura do método. Veja os exemplos abaixo:
+
+```java
+public int getAge () {
+
+return age;
+
+}
+```
+
+O comando return é utilizado para passar o valor requerido de volta para quem chamou o método e é obrigatório quando o tipo de retorno não é void. Ele deve receber um único valor ou uma expressão que deve ser compatível com o tipo de retorno especificado para o método. Quando o comando é encontrado, o método termina sua execução imediatamente, ignorando todas as instruções subsequentes.
+
+Um comando return sem valor de retorno retorna o tipo void, mas não é obrigatória sua utilização nestes casos.
+
+### Passando Parâmetros para um Método
+
+Passando um Primitivo : Quando um valor primitivo é passado na chamada de um
+método, uma **cópia** deste valor é criada e atribuída para o argumento do método
+responsável por recebê-la. Se o método mudar este valor, apenas o valor do
+argumento local ao método é afetado. Quando o método terminar sua execução, o valor original da variável utilizada para passar o valor primitivo na chamada do
+método permanecerá inalterado.
