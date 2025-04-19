@@ -782,11 +782,12 @@ i = 3 e j = 2
 ```
 ## MÉTODOS
 
-Quando definimos um objeto num programa orientado a objetos, implementamos todo o comportamento desse objeto em um ou mais métodos.
 
-Um método em Java é equivalente a uma função, subrotina ou procedimento em outras linguagens de programação.
+- Quando definimos um objeto num programa orientado a objetos, implementamos todo o comportamento desse objeto em um ou mais métodos.
 
-Não existe em Java o conceito de métodos globais. Todos os métodos devem sempre ser definidos dentro de uma classe.
+- Um método em Java é equivalente a uma função, subrotina ou procedimento em outras linguagens de programação.
+
+- Não existe em Java o conceito de métodos globais. Todos os métodos devem sempre ser definidos dentro de uma classe.
 
 A sintaxe para construção de um método é a seguinte:
 ```java
@@ -856,8 +857,68 @@ Um comando return sem valor de retorno retorna o tipo void, mas não é obrigat�
 
 ### Passando Parâmetros para um Método
 
-Passando um Primitivo : Quando um valor primitivo é passado na chamada de um
+**Passando um Primitivo:** Quando um valor primitivo é passado na chamada de um
 método, uma **cópia** deste valor é criada e atribuída para o argumento do método
 responsável por recebê-la. Se o método mudar este valor, apenas o valor do
 argumento local ao método é afetado. Quando o método terminar sua execução, o valor original da variável utilizada para passar o valor primitivo na chamada do
 método permanecerá inalterado.
+
+```java
+public void incrementa (int num) {
+
+num++;
+
+System.out.println(“num : ” + num);
+
+}
+```
+
+```java
+int num = 10;
+
+incrementa (num); //Imprimirá 11
+
+System.out.println(”num : ” + num); //Imprimirá 10
+```
+
+**Passando a Referência de um Objeto:** Quando o tipo passado para o método não for um primitivo mas sim um objeto, esse comportamento muda. Quando passamos um objeto, uma referência ao objeto original é passada ao invés de uma cópia do objeto.
+
+A referência contém o endereço de memória onde está contido o objeto original e
+qualquer modificação feita pelo método no argumento que recebeu esta referência
+afetará também o objeto original.
+
+O Java é mais purista em relação à orientação a objetos que Delphi, portanto não existem “funções” perdidas, cada método esta hierarquicamente ligado a uma classe, portanto você sempre irá acessar um método através:
+```java
+Classe.Método() ou Objeto.Método
+```
+
+Para os métodos estáticos não é necessário instanciar um objeto para usá-lo, já nos outros casos, a funcionalidade do método só é possível após instanciação, que é a criação de um objeto a partir da sua classe.
+
+### CONCEITOS EM PROJETOS MAIORES
+
+OBS: O uso de métodos separa e organiza a lógica, além disso, tratar problemas grandes, dividindo os mesmos em problemas menores é uma técnica bastante efetiva.
+
+Um método deve ser codificado dentro da classe a qual pertence, portanto estará entre as chaves da classe. Um método em Java, tal como uma função retorna um valor, mas alternativamente podemos dizer que ele retorna vazio (void), sendo, portanto somente um procedimento.
+
+```java
+<qualificadores> <tipo-de-retorno> <nome-do-método> ([lista-de-parâmetros]){
+
+<bloco-de-comandos>
+
+}
+```
+O primeiro detalhe é relativo a <qualificadores> estes podem assumir várias formas, iremos destacar mais a frente este tópico, mas neste momento você deve conhecer:
+
+**public static** – Permite criar um método que pode ser executado por agentes externos, inclusive independente de instanciação.
+
+**private static** – Como o nome sugere este método só é visível dentro da própria classe onde foi definido e poderá ser executado diretamente sem necessidade de instanciação.
+
+Em ambos os casos omitindo-se a palavra, static, estaremos obrigando a instanciação de um objeto para então utilizar o método, um método estático é mais oneroso para o sistema, porém sempre temos algum método estático que inicia o processo de execução.
+
+**Com estes dois qualificadores é possível atender a praticamente todos os casos.**
+
+O [tipo-de-retorno] é um valor ou objeto que é retornado pelo método após o
+processamento interno do método, como em uma função matemática, você pode passar parâmetros e ter um valor como resposta. Você declara o [tipo-de-retorno] como um tipo de dados ou uma classe.
+
+A [lista-de-parâmetros] é opcional, mas muito interessante para fazer a interface entre o exterior e a rotina que esta internalizada ao método, ao seja, pela parametrização que você consegue criar métodos genéricos, que atendam a várias situações.
+As chaves servirão para agrupar o que faz parte do método, em termos de codificação.
