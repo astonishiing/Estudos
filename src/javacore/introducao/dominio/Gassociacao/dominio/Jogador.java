@@ -1,19 +1,19 @@
 package javacore.introducao.dominio.Gassociacao.dominio;
 
 public class Jogador {
-    private String nome;
+    private String nomeJogador;
     private Time time;
     // O jogador deve se cadastrar caso tenha um time colocar o Time no construtor
     //Caso o jogador pode se cadastrar e depois escolher o time, pode deixar o Time vazio
     public void imprime() {
-        System.out.println(this.nome);
+        System.out.println(this.nomeJogador);
         if(time != null){
-            System.out.println(time.getNome());
+            System.out.println(time.getNomeTime());
         }
     }
 
-    public Jogador(String nome) {
-        this.nome = nome;
+    public Jogador(String nomeJogador) {
+        this.nomeJogador = nomeJogador;
     }
 
     public Time getTime() {
@@ -25,11 +25,11 @@ public class Jogador {
     }
 
     public String getNome() {
-        return nome;
+        return nomeJogador;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nomeJogador = nome;
     }
 
 }

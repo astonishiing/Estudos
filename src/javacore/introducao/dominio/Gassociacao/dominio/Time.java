@@ -1,19 +1,19 @@
 package javacore.introducao.dominio.Gassociacao.dominio;
 
 public class Time {
-    private String nome;
+    private String nomeTime;
     private Jogador[] jogadores;
-    public Time(String nome){
-        this.nome = nome;
+    public Time(String nomeTime){
+        this.nomeTime = nomeTime;
     }
 
-    public Time(String nome, Jogador[] jogadores) {
-        this.nome = nome;
+    public Time(String nomeTime, Jogador[] jogadores) {
+        this.nomeTime = nomeTime;
         this.jogadores = jogadores;
     }
 
     public void imprime(){
-        System.out.println(this.nome);
+        System.out.println(this.nomeTime);
         if(jogadores == null){
             return;
         }
@@ -22,11 +22,11 @@ public class Time {
         }
     }
 
-    public void setNome(String nome){
-        this.nome = nome;
+    public void setNomeTime(String nomeTime){
+        this.nomeTime = nomeTime;
     }
-    public String getNome(){
-        return nome;
+    public String getNomeTime(){
+        return nomeTime;
     }
 
     public Jogador[] getJogadores() {
