@@ -780,6 +780,81 @@ i = 3 e j = 0
 i = 3 e j = 1
 i = 3 e j = 2
 ```
+## CONTRUTORES
+- Também conhecidos pelo inglês constructors, os construtores são os responsáveis por criar o objeto em memória, ou seja, instanciar a classe que foi definida. Eles são obrigatórios e são declarados
+
+- Um construtor em Java é um bloco de código especial dentro de uma classe, designado para inicializar novos objetos. Caracteriza-se por ter o mesmo nome da classe e por não especificar um tipo de retorno, nem mesmo void. Os construtores são chamados automaticamente quando um novo objeto é criado, facilitando a configuração inicial do objeto com valores específicos ou a execução de qualquer rotina preparatória necessária.
+
+Características principais:
+
+1. Nome: Deve coincidir exatamente com o nome da classe.
+2. Retorno: Não possui, nem mesmo void.
+3. Acesso: Pode ter qualquer modificador de acesso (public, private, etc.), controlando assim sua visibilidade.
+
+### Tipos de Construtores
+
+1. Construtor Padrão: Se uma classe não possui construtores explicitamente definidos, o Java fornece um construtor padrão, sem argumentos, que não faz nada além de chamar o construtor da superclasse.
+
+2. Construtor Parametrizado: Permite que o desenvolvedor especifique um ou mais parâmetros, possibilitando a inicialização de objetos com diferentes estados.
+
+### Importância dos Construtores
+
+1. Inicialização Segura: Garantem que todos os objetos de uma classe sejam inicializados em um estado consistente.
+2. Flexibilidade: A sobrecarga de construtores permite a inicialização de objetos de várias formas.
+3. Encapsulamento: Contribuem para o encapsulamento, permitindo a inicialização de atributos privados.
+
+Os construtores são uma ferramenta poderosa em Java, oferecendo aos desenvolvedores controle preciso sobre como os objetos são inicializados, garantindo que estejam sempre em um estado válido. Ao compreender e utilizar efetivamente os construtores, é possível escrever código mais limpo, seguro e reutilizável, elevando a qualidade das aplicações Java desenvolvidas.
+
+```java
+public class Carro{
+
+/* CONSTRUTOR DA CLASSE Carro */
+public Carro(){
+//Faça o que desejar na construção do objeto
+   }
+
+ }
+```
+
+O construtor sempre tem a seguinte assinatura:
+
+```java
+modificadores de acesso (public nesse caso) + nome da classe (Carro nesse caso) + parâmetros (nenhum definidoneste caso)
+
+O construtor pode ter níveis como: public, private ou protected.
+```
+Porém, por que alguém colocaria um construtor private, para que assim ninguém pudesse instanciar essa classe? Um dos motivos é a aplicação do padrão de projeto Singleton, que controla se um objeto já foi ou não criado. Para que isso ocorra ele não pode deixar que ninguém chame diretamente o construtor da classe.
+
+Para criar um objeto da classe Carro simplesmente usamos a palavra reservada “new” e o nosso construtor é chamado
+
+```java
+public class Carro{
+
+/* CONSTRUTOR DA CLASSE Carro */
+public Carro(){
+//Faça o que desejar na construção do objeto
+  }
+
+}
+
+public class Aplicacao {
+
+public static void main(String[] args) {
+//Chamamos o construtor sem nenhum parâmetro
+Carro fiat = new Carro();
+  }
+
+}
+```
+
+Por padrão, o Java já cria esse construtor sem parâmetros para todas as classes, então você não precisa fazer isso se utilizará apenas construtores sem parâmetros. Por outro lado, se você quiser, poderá criar mais de um construtor para uma mesma classe. Ou seja, posso criar um construtor sem parâmetros, com dois parâmetros e outro com três parâmetros.
+
+_$$ DESTRUTORES $$_
+
+Não é garantido que o Garbage Collection irá destruir este objeto, já que ele o faz na hora que achar conveniente e o programador não tem nenhum controle sobre isso.
+
+A forma mais adequada de “tentar” destruir um objeto em Java é atribuir valores nulos a ele. Assim, quando o Garbage Collection for realizar o seu trabalho, verá que seu objeto não está sendo mais utilizado e o destruirá.
+
 ## MÉTODOS
 
 
