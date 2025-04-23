@@ -922,3 +922,5 @@ processamento interno do método, como em uma função matemática, você pode p
 
 A [lista-de-parâmetros] é opcional, mas muito interessante para fazer a interface entre o exterior e a rotina que esta internalizada ao método, ao seja, pela parametrização que você consegue criar métodos genéricos, que atendam a várias situações.
 As chaves servirão para agrupar o que faz parte do método, em termos de codificação.
+
+_@astonishiing_
