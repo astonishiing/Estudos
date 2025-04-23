@@ -7,6 +7,7 @@ public class Anime {
     private String genero;
     private String estudio;
 
+    //Construtores são relacionados ao objeto, então é por isso que utilizamos o this(), sem parâmetros
     public Anime(String nome, String tipo, int episodios, String genero){
         this(); // o this, nesse caso so pode ser utilizado dentro de contrutores e precisa obrigatoriamente ser a primeira linha executada
         this.nome = nome;
