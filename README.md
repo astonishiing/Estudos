@@ -998,4 +998,244 @@ processamento interno do método, como em uma função matemática, você pode p
 A [lista-de-parâmetros] é opcional, mas muito interessante para fazer a interface entre o exterior e a rotina que esta internalizada ao método, ao seja, pela parametrização que você consegue criar métodos genéricos, que atendam a várias situações.
 As chaves servirão para agrupar o que faz parte do método, em termos de codificação.
 
+## Associação entre Classes ou Objetos em Java
+
+Na programação orientada a objetos (POO), a associação entre classes ou objetos é um relacionamento onde um objeto de uma classe se refere a outro objeto de outra classe. Essa associação pode ser simples ou complexa e pode ser representada de diversas maneiras. Três tipos principais de associação são usados para modelar o relacionamento entre objetos:
+
+### 1. Composição (Composição Forte)
+
+A composição é um tipo de associação mais forte, onde um objeto "parte" de outro objeto. Se o objeto "pai" for destruído, seus objetos "filhos" também serão destruídos. Em outras palavras, o ciclo de vida dos objetos componentes depende do ciclo de vida do objeto que os contém.
+
+Características da Composição:
+
+1. Relacionamento forte: O objeto "pai" contém o objeto "filho" e controla seu ciclo de vida.
+   
+2. Destruição: Quando o objeto "pai" é destruído, o objeto "filho" também é destruído.
+ 
+3. Exemplo: Uma casa e seus cômodos. Se a casa for destruída, os cômodos também serão destruídos, pois não existem independentemente.
+
+```java
+class Cômodo {
+    private String nome;
+
+    Cômodo(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+
+class Casa {
+    private Cômodo cozinha;
+    private Cômodo sala;
+    private Cômodo quarto;
+
+    // Construtor que cria os cômodos como parte da casa
+    Casa() {
+        this.cozinha = new Cômodo("Cozinha");
+        this.sala = new Cômodo("Sala");
+        this.quarto = new Cômodo("Quarto");
+    }
+
+    public void mostrarCômodos() {
+        System.out.println("Cômodos da casa: ");
+        System.out.println(cozinha.getNome());
+        System.out.println(sala.getNome());
+        System.out.println(quarto.getNome());
+    }
+
+    // A Casa destrói automaticamente seus Cômodos quando a Casa é destruída.
+}
+
+public class TesteComposicao {
+    public static void main(String[] args) {
+        Casa casa = new Casa();
+        casa.mostrarCômodos();
+        // Se a casa for destruída, os cômodos também seriam.
+    }
+}
+```
+
+Explicação:
+
+- A Casa tem instâncias de Cômodo. No exemplo acima, quando a instância de Casa for destruída, os Cômodos (cozinha, sala, quarto) também seriam destruídos, pois são componentes da Casa e não existem independentemente.
+- A relação entre Casa e Cômodo é uma composição forte.
+
+### 2. Agregação (Composição Fraca)
+
+A agregação é uma forma de associação mais fraca em que o objeto "pai" pode conter objetos "filhos", mas esses objetos podem existir independentemente do "pai". Ou seja, se o objeto "pai" for destruído, os objetos "filhos" podem continuar existindo.
+
+Características da Agregação:
+1. Relacionamento mais fraco: O objeto "pai" contém o objeto "filho", mas não é responsável por seu ciclo de vida.
+
+2. Existência independente: Os objetos "filhos" podem existir sem o objeto "pai".
+
+3. Exemplo: Um departamento e seus funcionários. O departamento pode existir sem os funcionários, e os funcionários podem existir sem o departamento.
+
+```java
+class Funcionario {
+    private String nome;
+
+    Funcionario(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+
+class Departamento {
+    private String nome;
+    private Funcionario funcionario;
+
+    Departamento(String nome, Funcionario funcionario) {
+        this.nome = nome;
+        this.funcionario = funcionario;
+    }
+
+    public void exibirInformacoes() {
+        System.out.println("Departamento: " + nome);
+        System.out.println("Funcionario: " + funcionario.getNome());
+    }
+
+    // Mesmo que o Departamento seja destruído, o Funcionário pode continuar existindo.
+}
+
+public class TesteAgregacao {
+    public static void main(String[] args) {
+        Funcionario funcionario = new Funcionario("Maria");
+        Departamento departamento = new Departamento("RH", funcionario);
+        departamento.exibirInformacoes();
+        // O Departamento pode ser destruído, mas o Funcionário ainda existe.
+    }
+}
+```
+
+Explicação:
+
+1. A agregação é uma associação mais fraca entre Departamento e Funcionario. Mesmo que o Departamento seja destruído, o Funcionario pode continuar existindo, já que ele é uma entidade independente.
+2. A relação entre Departamento e Funcionario é uma agregação.
+
+### 3. Multiplicidade
+
+A multiplicidade descreve quantas instâncias de uma classe podem estar associadas a uma instância de outra classe. Ela indica o número de objetos que podem estar relacionados entre si.
+
+Tipos de Multiplicidade:
+
+1:1: Um objeto de uma classe está relacionado a exatamente um objeto de outra classe.
+
+1:N: Um objeto de uma classe pode estar relacionado a vários objetos de outra classe (um para muitos).
+
+N:M: Vários objetos de uma classe podem estar relacionados a vários objetos de outra classe (muitos para muitos).
+
+Exemplo de Multiplicidade 1:N:
+
+```java
+class Autor {
+    private String nome;
+
+    Autor(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+
+class Livro {
+    private String titulo;
+    private Autor autor; // Um autor para muitos livros
+
+    Livro(String titulo, Autor autor) {
+        this.titulo = titulo;
+        this.autor = autor;
+    }
+
+    public void exibirInformacoes() {
+        System.out.println("Livro: " + titulo);
+        System.out.println("Autor: " + autor.getNome());
+    }
+}
+
+public class TesteMultiplicidade {
+    public static void main(String[] args) {
+        Autor autor = new Autor("J.K. Rowling");
+        Livro livro1 = new Livro("Harry Potter e a Pedra Filosofal", autor);
+        Livro livro2 = new Livro("Harry Potter e a Câmara Secreta", autor);
+
+        livro1.exibirInformacoes();
+        livro2.exibirInformacoes();
+        // Um autor pode escrever vários livros, mas cada livro tem exatamente um autor.
+    }
+}
+```
+
+Explicação:
+
+A relação entre Autor e Livro é de 1:N. Um Autor pode escrever vários Livros, mas cada Livro tem exatamente um Autor.
+
+Exemplo de Multiplicidade N:M:
+
+```java
+class Estudante {
+    private String nome;
+
+    Estudante(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+
+class Curso {
+    private String nome;
+    private List<Estudante> estudantes = new ArrayList<>();
+
+    Curso(String nome) {
+        this.nome = nome;
+    }
+
+    public void adicionarEstudante(Estudante estudante) {
+        estudantes.add(estudante);
+    }
+
+    public void exibirInformacoes() {
+        System.out.println("Curso: " + nome);
+        for (Estudante estudante : estudantes) {
+            System.out.println("Estudante: " + estudante.getNome());
+        }
+    }
+}
+
+public class TesteMultiplicidadeNM {
+    public static void main(String[] args) {
+        Estudante estudante1 = new Estudante("Ana");
+        Estudante estudante2 = new Estudante("Carlos");
+
+        Curso curso = new Curso("Matemática");
+        curso.adicionarEstudante(estudante1);
+        curso.adicionarEstudante(estudante2);
+
+        curso.exibirInformacoes();
+        // Muitos estudantes podem estar matriculados em muitos cursos.
+    }
+}
+```
+
+Explicação:
+
+A relação entre Estudante e Curso é de N:M. Muitos Estudantes podem estar matriculados em muitos Cursos, e um Curso pode ter muitos Estudantes.
+
+Composição: Relacionamento forte, onde o ciclo de vida do objeto "filho" depende do objeto "pai". Se o objeto "pai" for destruído, o objeto "filho" também será.
+
+Agregação: Relacionamento mais fraco, onde o objeto "pai" pode conter objetos "filhos", mas esses objetos podem existir independentemente.
+
+Multiplicidade: Refere-se à quantidade de objetos de uma classe que podem ser associados a objetos de outra classe. Pode ser 1:1, 1:N, ou N:M.
+
 _@astonishiing_
