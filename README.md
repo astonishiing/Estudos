@@ -1238,4 +1238,142 @@ Agregação: Relacionamento mais fraco, onde o objeto "pai" pode conter objetos 
 
 Multiplicidade: Refere-se à quantidade de objetos de uma classe que podem ser associados a objetos de outra classe. Pode ser 1:1, 1:N, ou N:M.
 
+## HERANÇA
+
+"É um”. Utilizamos herança quando queremos estender uma funcionalidade de uma classe. Acoplando fortemente o código. Ou utilizamos quando queremos fazer o polimorfismo
+
+Na programação modular existe uma técnica chamada Herança que é utilizada para reuso, evitando a repetição de um mesmo trecho de código que faz as mesmas coisas em diversos lugares no código, ajudando então na boa prática de deixar o código mais objetivo e limpo.
+
+Um exemplo básico para entender o conceito seria: Um cachorro e um homem, embora obviamente se diferem, possuem uma característica em comum: são mamíferos, eu não preciso repetir essa mesma informação se eu posso reutilizá-la. Assim como um beija-flor e uma galinha são aves, ou seja, possuem algo em comum. Em um nível mais acima, podemos concluir que cachorro, homem, beija-flor e galinha possuem algo em comum: ambos são animais. Sempre um vai recuperando as informações do outro.
+
+Sendo assim, não há necessidade de repetir sempre e caso exista um outro mamífero, como um gato, basta reutilizar as informações já existentes acrescentando as características específicas, no caso a especialização.
+
+> Definição geral:
+
+Formalmente, a Herança é uma técnica para reutilizar características de uma classe na definição de outra classe, determinando uma hierarquia de classes. Diante deste cenário existem as seguintes terminologias relacionadas à Herança:
+
+- Superclasses (pai): Classes mais genéricas que devem guardar membros em comum.
+
+- Subclasses (filha): Classes especializadas que acrescentam novos membros, especializando a classe.
+ 
+Com este conceito aplicado de maneira correta é possível reutilizar componentes de maneira mais rápida e simples além de facilitar a extensibilidade do sistema. Por falar em extensibilidade, o operador extends é utilizando na subclasse para estender a superclasse.
+
+Os atributos e métodos são herdados por todos os objetos dos níveis mais baixos considerando o modificador de acesso.
+Diferentes subclasses podem herdar as características de uma superclasse.
+
+> Principais benefícios
+
+- Reutilização de código uma vez que as similaridades são compartilhadas e as diferenças preservadas.
+  
+- Facilitação da manutenção do sistema trazendo maior legibilidade do código existente, quantidade menor de linhas de código e alterações em poucas partes do código.
+
+> Herança simples
+
+Provavelmente a herança simples seja a mais utilizada, mesmo porque linguagens como o JAVA aceitam somente ela. Ou seja, não tem como ter herança por cima de herança, bom, pelo menos não sem usar alguns artifícios.
+
+Um exemplo pode ser visto abaixo: um veículo pode ser tanto um carro, quanto uma moto. O veículo seria a superclasse enquanto as demais uma subclasse que vai herdar todas as propriedades da superclasse.
+
+```java
+public class Veiculo {
+        public String modelo;
+        public String marca;
+    }
+
+    public class Carro extends Veiculo {
+        public String porta;
+    }
+
+    public class Moto extends Veiculo {
+        public int bau_carga;
+    }
+```
+No entanto, uma herança pode herdar outra. Por exemplo, existem vários tipos de carro: hatch, sedan, caminhonete, SUV, entre outros. É possível criar uma classe para representar um carro SUV que vai herdar as propriedades de: Carro e Veículo. Ou seja: SUV é um Carro que é um Veículo.
+
+
+```java
+public class Caminhonete extends Carro {
+        public int litros_Cacamba;
+    }
+```
+
+Ou seja, vimos que o nível mais alto é a Generalização e o mais baixo a Especialização, sendo que quanto mais se desce na árvore da herança, maior a especialização.
+
+### CONSTRUTORES
+
+Os construtores são herdados quando existe a herança, sendo chamados em cascata durante a instanciação das classes mais especializadas, de forma implícita ou explícita.
+
+A chamada implícita geralmente ocorre ao construtor de Object. Ou seja, se uma classe não herda explicitamente de outra classe, ela então herda de Object. No caso do exemplo abaixo, os métodos construtores Veiculo herdam implicitamente de Object.
+
+```java
+public class Veiculo{
+   public String marca;
+   public String modelo;
+   public Veiculo() {}
+   public Veiculo(String modelo, String marca) {
+      this.modelo = modelo;
+      this.marca = marca;
+   }
+}
+```
+
+Já a chamada explícita ocorre como no exemplo abaixo:
+
+```java
+public class Carro extends Veiculo{ 
+   public int porta; 
+   // Chamada implicita para o construtor de Veiculo
+   public Carro() { }
+   // Chamada explicita para o construtor de Veiculo
+   public Carro(String marca, String modelo, int porta) { 
+      super(modelo); 
+      super(marca);
+      this.porta = porta; 
+   } 
+}
+```
+Para compreender melhor o código acima, é importante conhecer as referências this e super.
+
+- Referência this: Referência à membros do objeto corrente.
+- Referência super: Referência à membros da superclasse, sendo também utilizado para chamar o construtor: Subclasse chama o construtor da superclasse; Primeira instrução no construtor da subclasse.
+
+> Sobrescrita de métodos
+
+Os métodos podem ser sobrescritos, o que é diferente de sobrecarga por terem a mesma assinatura e o tipo de retorno. No entanto, como toda regra possui uma exceção, aqui a que se aplica é: Métodos finais e private não podem ser sobrescritos uma vez que o acesso não pode ser restringido.
+
+- Public -> Public
+- Protected -> Protected, Public
+
+Atributos não são redefiníveis: Se um atributo de mesmo nome for definido na subclasse, a definição na superclasse é ocultada.
+
+Membros estáticos: Não são redefinidos, mas ocultados, como o acesso é feito pelo nome da classe, estar ou não ocultado terá pouco efeito.
+
+```java
+public class Veiculo 
+{
+   public void tipoVeiculo()
+   {
+        System.out.println("O veículo é um carro ou moto");
+   }
+}
+public class Carro extends Veiculo
+{
+   @Override
+   public void tipoVeiculo()
+   {
+      System.out.println("O veículo é um carro");
+   }
+}
+public class TesteHeranca 
+{ 
+   public static void main(String[] args) 
+   { 
+      Veiculo v = new Pessoa("Gol", "VolksWagen"); 
+      v.tipoVeiculo(); 
+Carro c = new Carro ("Gol", "VolksWagen", 4); 
+      e.tipoVeiculo(); 
+   } 
+}
+```
+
+
 _@astonishiing_
