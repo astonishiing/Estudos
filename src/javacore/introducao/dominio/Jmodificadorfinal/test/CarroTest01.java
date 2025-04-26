@@ -13,7 +13,8 @@ public class CarroTest01 {
         System.out.println(carro.COMPRADOR);
         carro.COMPRADOR.setNome("Kuririn");
         System.out.println(carro.COMPRADOR);
-        // System.out.println(carro.VELOCIDADE_LIMITE);
+        // System.out.println(carro.VELOCIDADE_LIMITE); nesse caso é apenas se nos declararmos
+        // que o atributo seja public final e a criação de um bloco de iniciazaliação não estatico
         Ferrari ferrari = new Ferrari();
         ferrari.setNome("Enzo");
         ferrari.imprime();
