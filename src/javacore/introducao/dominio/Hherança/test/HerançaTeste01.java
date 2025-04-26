@@ -11,12 +11,14 @@ public class HerançaTeste01 {
         endereco.setCep("012345-444");
 
         Pessoa pessoa = new Pessoa("Shimazu");
+        // pessoa.setNome();
         pessoa.setCpf("111111");
         pessoa.setEndereco(endereco);
 
         pessoa.imprime();
 
         Funcionario funcionario = new Funcionario("Oda");
+        //funcionario.setNome();
         funcionario.setCpf("22222");
         funcionario.setEndereco(endereco);
         funcionario.setSalario(20000);
