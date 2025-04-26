@@ -5,8 +5,8 @@ import javacore.introducao.dominio.Hherança.dominio.Funcionario;
 public class HerancaTeste02 {
     // 0 - Bloco de inicializacao estático da superclasse é executado quanto a JVM carregar classes pai
     // 1 - Bloco de inicializacao estático da subclasse é executado quanto a JVM carregar classes filhas
-    // 2 - alocado espaço em memoria para o objeto da superclasse
-    // 3 - Cada atributo de superclasse é cirado e inicializado com valores default ou o que for passado
+    // 2 - alocado espaço em memoria para o objeto da superclasse (classe pai);
+    // 3 - Cada atributo de superclasse é cirado e inicializado com valores default ou o que for passado da classe pai
     // 4 -Bloco de inicialização da superclasse é executado na ordem em que aparece
     // 5 - Construtore é executado da superclasse
 
