@@ -12,6 +12,7 @@ public class Carro {
 
     //public final double VELOCIDADE_LIMITE = 250;
     public static final double VELOCIDADE_LIMITE = 250;
+    // public final double VELOCIDADE_LIMITE
     /*
     * {
     * VELOCIDA_LIMITE = 250
@@ -20,7 +21,7 @@ public class Carro {
     * */
 
     /* (OR) public Carro() {
-        VELOCIDADE_LIMITE
+        VELOCIDADE_LIMITE = 250
     } Nesse caso é apenas se fosse static */
 
     public String getNome() {
