@@ -1375,5 +1375,270 @@ Carro c = new Carro ("Gol", "VolksWagen", 4);
 }
 ```
 
+## ENUM
+
+As enumerações estão presentes em várias linguagens de programação, mas em Java elas têm características especiais.
+
+> Para que servem as enumerações?
+
+As enumerações são usadas quando precisamos definir um conjunto fixo de constantes. Por exemplo, podemos criar uma enumeração com os meses do ano (janeiro, fevereiro, março…) ou com códigos de status, como sucesso, em espera, falha.
+
+> O que são enumerações em Java
+
+É muito importante entender que, diferente de outras linguagens, **Java implementa enumerações como tipos de classe**, ou seja, elas definem um tipo de dado. E, como as enumerações representam um conjunto fixo de valores, **um objeto de uma enumeração só pode assumir os valores declarados em sua lista de constantes** (meses do ano, códigos de status, etc.).
+
+> Criando uma enumeração
+
+Uma enumeração é criada com o uso da palavra-chave enum. Essa declaração define uma classe, chamada de tipo enum (enum type).
+
+```java
+enum Sinalizacao {
+	VERDE, AMARELO, VERMELHO;
+}
+```
+
+1. Os identificadores VERDE, AMARELO e VERMELHO são chamados de constantes de enumeração;
+
+2. Cada identificador é declarado implicitamente como um campo público estático final de Sinalizacao;
+
+3. As constantes de enumeração são chamadas **autotipadas**, o que quer dizer que seu tipo é o mesmo da enumeração que as contêm, ou seja, VERDE, AMARELO e VERMELHO são constantes do tipo **Sinalizacao.**
+
+Você pode declarar uma variável de um tipo de enumeração previamente definido, da mesma forma que faria com qualquer outro tipo. Por exemplo, assim se declara uma variável de tipo de enumeração Sinalizacao chamada sin.
+
+```java
+class EnumDemo {
+  Sinalizacao sin;
+}
+```
+
+Não é possível instanciar um tipo enum usando new. Como sin é de tipo Sinalizacao, os únicos valores que podem ser atribuídos a ela são aqueles definidos pela enumeração, e obtemos esse valor usando a sintaxe de acesso a membro estático do Java — lembre-se que as constantes de enumeração são campos públicos estáticos:
+
+```java
+class EnumDemo {
+  Sinalizacao sin;
+  sin = Sinalizacao.AMARELO;
+}
+```
+
+> Comparando enumerações
+
+Como é impossível instanciar explicitamente um tipo enum, só pode haver uma instância de cada constante de enumeração.
+
+Portanto, podemos usar o operador relacional == em vez do método equals para comparar duas referências de objetos do mesmo tipo enum. Também é possível usar o método equals mas, por simplicidade, dê preferência à primeira opção.
+
+```java
+class EnumDemo {
+  Sinalizacao sin = Sinalizacao.AMARELO;
+
+  if (sin == Sinalizacao.VERDE) // …  
+  
+  if (sin.equals(Sinalizacao.VERMELHO)) // …
+} 
+```
+
+> Exibindo uma constantes de enumeração
+
+A exibição de uma constante de enumeração, por exemplo utilizando println(), resulta em seu nome, como definido na enumeração.
+
+```java
+class EnumDemo {
+  System.out.println(Sinalizacao.VERMELHO);
+}
+```
+
+> Enumerações em instrução switch
+
+É possível controlar uma instrução switch usando o valor de uma enumeração:
+
+```java
+class EnumDemo {
+  Sinalizacao sin = Sinalizacao.AMARELO;
+
+  switch (sin) {
+	  case VERDE:
+		  // ...
+	  case AMARELO:
+		  // ...
+	  case VERMELHO:
+		  // ...
+  } 
+}
+```
+
+- Duas observações importantes:
+
+As instruções case devem usar constantes do mesmo tipo enum da expressão switch;
+
+Nas instruções case, os nomes das enumerações devem ser usados sem a especificação de seu tipo de enumeração (VERDE em vez de Sinalizacao.VERDE), porque ele já é especificado implicitamente na expressão switch, e incluí-lo causará erro de compilação.
+
+> Maiúsculo ou minúsculo?
+
+Java não faz nenhuma exigência estilística, mas muitos programadores definem as constantes de enumeração com maiúsculas, como fizemos em nossos exemplos até agora. Essa preferência se deve ao fato de que muitas vezes as enumerações substituem variáveis de tipo final, que por tradição também costumam ser escritas com maiúsculas.
+
+### Enumerações vs variáveis final
+
+Muitos programadores acham que as enumerações substituem as variáveis final, mas ambas devem ser usadas em situações distintas:
+
+**Enumerações:** São indicadas quando precisamos definir uma lista de itens pré-definidos e representados por um identificador.
+
+**Variáveis final:** São usadas para definir um valor constante, como o tamanho de um array ou o valor máximo que uma variável do encapsulador de tipo Integer pode assumir (Integer.MAX_VALUE).
+
+> Definindo construtores, métodos e variáveis de instância
+
+Como cada constante de enumeração é um objeto de seu tipo de enumeração (Sinalizacao.VERDE é um objeto de tipo Sinalizacao), **podemos ter construtores, métodos e variáveis de instância em uma enumeração:**
+
+1. O construtor é chamado uma vez para cada constante quando ela é criada durante a inicialização da classe;
+
+2. Como qualquer outra classe, um tipo enum pode ter dois ou mais construtores sobrecarregados;
+
+3. Todo construtor de enum sem modificador de acesso é private. Tentar usar os modificadores public e protected causará erro de compilação. Portanto, na prática só é possível definir construtores privados em um tipo enum;
+
+4. Cada constante tem sua própria cópia de qualquer variável de instância definida pela enumeração e pode chamar qualquer um de seus métodos.
+
+exemplo ilustra o uso de um construtor:
+
+```java
+enum Sinalizacao {
+	VERDE(120), AMARELO(5), VERMELHO(60);
+
+	private final int tempo;
+
+	Sinalizacao(int t) {
+		tempo = t;
+	}
+
+	int getTempo() {
+		return tempo;
+	}
+}
+
+class EnumDemo1 {
+	public static void main(String[] args) {
+		System.out.println("O tempo do sinal " + 
+				   Sinalizacao.VERDE + " é " + 
+				   Sinalizacao.VERDE.getTempo() + "segundos.");
+	}
+}
+```
+
+1. Uma variável de instância tempo que contém o tempo em segundos que o sinal fica ativo. (Perceba que declaramos tempo como final porque, conceitualmente, uma constante de enumeração deve representar um valor fixo, embora não seja obrigatório usar esse modificador);
+
+2. Um construtor que recebe como argumento o tempo de ativação do sinal;
+
+3. O método getTempo(), que retorna o valor de tempo.
+
+Observe que os argumentos do construtor são colocados entre parênteses após cada constante. Esses valores são passados para o parâmetro t de Sinalizacao, cujo valor é então atribuído à variável de instância tempo.
+
+Já que cada constante de enumeração é um objeto e, portanto, têm sua própria cópia de tempo, podemos obter o tempo de um sinal especificado chamando getTempo().
+
+### Métodos values() e valueOf()
+
+Toda enumeração tem dois métodos implícitos, que são adicionados automaticamente pelo compilador quando ele cria um enum. Esta é a forma geral desses métodos:
+
+```java
+public static E[]values();
+public static E valueOf(String name);
+```
+
+O método **values()** retorna um array contendo todas as constantes de enumeração na ordem em que elas foram declaradas; ele é comumente usado para iterar sobre os valores de um tipo enum;
+
+O método **valueOf()** retorna a constante de enumeração cujo valor corresponde ao string passado como argumento ou lança um IllegalArgumentException se o tipo enum não tiver nenhuma constante com o nome especificado.
+
+```java
+enum Sinalizacao {
+	VERDE, AMARELO, VERMELHO;
+}
+
+public class EnumDemo2 {
+	public static void main(String[] args) {
+		for (Sinalizacao sin : Sinalizacao.values()) {
+      			System.out.println("Sinal " + sin);
+		}
+
+		System.out.println();
+
+		Sinalizacao sin = Sinalizacao.valueOf("VERDE");
+		System.out.println("sin contém " + sin);
+
+	}
+}
+```
+
+RESULTADO: 
+```java
+Sinal VERDE
+Sinal AMARELO
+Sinal VERMELHO
+
+sin contém VERDE
+```
+
+> Restrições do tipo enum
+
+Há duas restrições importantes sobre as enumerações:
+
+1. Um tipo enum não pode ser uma superclasse, ou seja, ele é uma classe implicitamente final (não pode ser estendido por outra classe);
+
+2. Uma enumeração não pode herdar outra classe.
+
+A segunda restrição decorre do fato de que todo tipo enum herda implicitamente a classe java.lang.Enum, e Java não permite herança múltipla.
+
+> Adicionando corpo a uma constante de enumeração
+
+Uma constante de enumeração também pode ter um corpo. **Esse corpo define implicitamente uma declaração de classe anônima que estende o tipo enum que a contém.** O corpo da classe segue as regras das classes anônimas, como não poder definir nenhum construtor explícito. Também é possível ter métodos de instância no corpo mas, como veremos no próximo exemplo, para que possam ser chamados fora do tipo enum ele precisa sobrescrever algum método acessível dentro do tipo enum.
+
+```java
+enum Operacao {
+	MAIS {
+		@Override
+		double avaliar(double x, double y) {
+			return x + y;
+		}
+	},
+	MENOS {
+		@Override
+		double avaliar(double x, double y) {
+			return x - y;
+		}
+	},
+	VEZES {
+		@Override
+		double avaliar(double x, double y) {
+			return x * y;
+		}
+	},
+	DIVIDIDO_POR {
+		@Override
+		double avaliar(double x, double y) {
+			return x / y;
+		}
+	};
+
+	// Cada constante realiza uma operação aritmética
+	abstract double avaliar(double x, double y);
+}
+
+class EnumDemo3 {
+	public static void main(String[] args) {
+		double x = 2.0;
+		double y = 1.0;
+		for (Operacao op : Operacao.values())
+			System.out.println(x + " " + op + " " + y + " = " + op.avaliar(x, y));
+	}
+}
+```
+
+RESULTADO:
+
+```java
+2.0 MAIS 1.0 = 3.0
+2.0 MENOS 1.0 = 1.0
+2.0 VEZES 1.0 = 2.0
+
+2.0 DIVIDIDO_POR 1.0 = 2.0
+```
+
+Nesse exemplo temos uma enumeração que define as operações aritméticas básicas. Cada constante tem sua versão do método abstrato avaliar, que realiza a operação representada pela constante.
+
 
 _@astonishiing_
