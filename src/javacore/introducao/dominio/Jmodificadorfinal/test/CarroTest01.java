@@ -1,6 +1,6 @@
 package javacore.introducao.dominio.Jmodificadorfinal.test;
 
-import javacore.introducao.dominio.Isobrescrita.dominio.Comprador;
+import javacore.introducao.dominio.Jmodificadorfinal.dominio.Comprador;
 import javacore.introducao.dominio.Jmodificadorfinal.dominio.Carro;
 import javacore.introducao.dominio.Jmodificadorfinal.dominio.Ferrari;
 
