@@ -1,4 +1,4 @@
-package javacore.introducao.dominio.Isobrescrita.dominio;
+package javacore.introducao.dominio.Jmodificadorfinal.dominio;
 
 public class Comprador {
     private String nome;
