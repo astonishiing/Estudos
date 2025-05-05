@@ -2,7 +2,7 @@ package javacore.introducao.dominio.Jmodificadorfinal.dominio;
 
 public class Carro {
     private String nome;
-    public final Comprador COMPRADOR = new Comprador();
+    public final Comprador COMPRADOR = new Comprador(); //Padrão de projeto singleton
 
     public final void imprime(){
         System.out.println(this.nome);
