@@ -5,6 +5,7 @@ public class StackOverflowTest01 {
         recursividade();
     }
     // Quando a stack estoura, nao tem como resolver
+    // Nesse caso temos que tirar a recursivade ou melhorar a forma como irá parar
 
     public static void recursividade(){
         recursividade();
