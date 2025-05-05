@@ -8,6 +8,7 @@ public class ExceptionTest01 {
     }
 
     private static void criarNovoArquivo(){
-        File file = new File("arquivo");
+        File file = new File("arquivo\\test.txt");
+        file.createNewFile(); //Nesse exemplo temos um error de compilação, porque a exception não esta sendo tratada
     }
 }
