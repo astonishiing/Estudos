@@ -1,4 +1,4 @@
-package javacore.introducao.dominio.Oexception.test;
+package javacore.introducao.dominio.Oexception.error.test;
 
 public class StackOverflowTest01 {
     public static void main(String[] args) {
