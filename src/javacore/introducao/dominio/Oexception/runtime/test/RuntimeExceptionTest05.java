@@ -7,24 +7,23 @@ public class RuntimeExceptionTest05 {
     public static void main(String[] args) {
         try {
             throw new RuntimeException();
-        } catch (ArrayIndexOutOfBoundsException  e) {
+        } catch (ArrayIndexOutOfBoundsException | IllegalArgumentException | ArithmeticException e) {
             System.out.println("Dentro do ArrayIndex");
             e.printStackTrace();
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Dentro do IndexOut");
-        } catch (ArithmeticException e) {
-            System.out.println("Dentro do Aritmentic");
         } catch (RuntimeException e) {
             System.out.println("Dentro do RuntimeException");
         }
-        try{
+        try {
             talvezLanceException();
-        } catch (SQLException e){
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    private static void talvezLanceException() throws SQLException, FileNotFoundException{
+    private static void talvezLanceException() throws SQLException, FileNotFoundException {
 
     }
+}
+
+
 }
