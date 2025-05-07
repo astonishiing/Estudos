@@ -6,6 +6,14 @@ public class TryWithResourcesTest01 {
     public static void main(String[] args) {
 
     }
+    public static void lerArquivo(){
+        try (Reader reader = new BufferedReader(new FileReader("test.txt"))){
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
 
     public static void lerArquivo2() {
         Reader reader = null;
