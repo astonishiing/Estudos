@@ -13,9 +13,12 @@ public class WrapperTest01 {
         double doubleP = 10;
         char charP = 'W';
         boolean booleanP = false;
+
         // Classe wrapper: é escapsular o tipo primitivo e transformar em
         // Agora estamos trabalhando com objetos, então a regra de polimofismo é aplicada
         // Estamos passando a passagem do objeto por referência
+        // Estrutura de dados do pacote de coleções, eles nao trabalham com tipos primitivos
+
         Byte byterW = 1;
         Short shortW = 1;
         Integer intW = 1;
@@ -26,6 +29,6 @@ public class WrapperTest01 {
         Boolean booleanW = false;
 
         //Agora temos classes para representar os tipos primitivos
-
+        // So utilizamos Wrappers a depender do sentido
     }
 }
