@@ -11,6 +11,18 @@ public class WrapperTest01 {
         double doubleP = 10;
         char charP = 'W';
         boolean booleanP = false;
+        // Classe wrapper: é escapsular o tipo primitov e transformar em
+
+        Byte byterW = 1;
+        Short shortW = 1;
+        Integer intW = 1;
+        Long longW = 10L;
+        Float floatW = 10F;
+        Double doubleW = 10D;
+        Character charW = 'W';
+        Boolean booleanW = false;
+
+        //Agora temos classes para representar os tipos primitivos
 
     }
 }
