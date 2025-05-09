@@ -45,7 +45,24 @@ public class WrapperTest01 {
         Boolean booleanQ = false;
 
         // O conceito de unboxing: transformar um tipo Wrapper em tipo primitivo
+        //Podemos utilizar outros métodos, apesar de não ser mais utilizado
+
         //Exemplo:
         int i = intW;
+        //int a = intQ.longValue();
+        Integer intW2 = Integer.parseInt("1"); // Transforma uma String em valor Wrapper correpondente
+        boolean verdadeiro = Boolean.parseBoolean("true");
+        System.out.println(verdadeiro);
+
+        System.out.println("----------");
+
+        System.out.println(Character.isDigit('A'));
+        System.out.println(Character.isDigit('9'));
+        System.out.println(Character.isDigit('9'));
+        System.out.println(Character.isLetterOrDigit('!'));
+        System.out.println(Character.isLowerCase('a'));
+        System.out.println(Character.isUpperCase('A'));
+        System.out.println(Character.toUpperCase('a'));
+        System.out.println(Character.toLowerCase('A'));
     }
 }
