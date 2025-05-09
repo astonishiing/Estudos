@@ -37,7 +37,7 @@ public class WrapperTest01 {
         // O exemplo abaixo é um autoboxing: que é praticamente quando temos um tipo primitivo em Wrapper
         Byte byterQ = 1;
         Short shortQ = 1;
-        Integer intQ = 1;
+        Integer intQ = 1; // Quando temos um tipo primitivo e o Java faz a conversão automatica por um Wrapper
         Long longQ = 10L;
         Float floatQ = 10F;
         Double doubleQ = 10D;
@@ -51,7 +51,7 @@ public class WrapperTest01 {
         int i = intW;
         //int a = intQ.longValue();
         Integer intW2 = Integer.parseInt("1"); // Transforma uma String em valor Wrapper correpondente
-        boolean verdadeiro = Boolean.parseBoolean("true");
+        boolean verdadeiro = Boolean.parseBoolean("true"); // Todos os Wrappers, tem um método estático chamado parse...
         System.out.println(verdadeiro);
 
         System.out.println("----------");
