@@ -4,6 +4,7 @@ public class WrapperTest01 {
     public static void main(String[] args) {
         // Todas as classes elas são filhas de objeto e os tipos primitivos são apenas tipos primitivos, que são representadas por bits
         // No exemplo abaixo trabalhamos com bits
+        // Nós criamos tipos primitivos para representar um atributo do mundo real. As boas praticas dizem isso
         byte byter = 1;
         short shortP = 1;
         int intP = 1;
@@ -30,5 +31,6 @@ public class WrapperTest01 {
 
         //Agora temos classes para representar os tipos primitivos
         // So utilizamos Wrappers a depender do sentido
+
     }
 }
