@@ -32,5 +32,20 @@ public class WrapperTest01 {
         //Agora temos classes para representar os tipos primitivos
         // So utilizamos Wrappers a depender do sentido
 
+        //------------------------------
+        // Conceito de autoboxing e unboxing
+        // O exemplo abaixo é um autoboxing: que é praticamente quando temos um tipo primitivo em Wrapper
+        Byte byterQ = 1;
+        Short shortQ = 1;
+        Integer intQ = 1;
+        Long longQ = 10L;
+        Float floatQ = 10F;
+        Double doubleQ = 10D;
+        Character charQ = 'W';
+        Boolean booleanQ = false;
+
+        // O conceito de unboxing: transformar um tipo Wrapper em tipo primitivo
+        //Exemplo:
+        int i = intW;
     }
 }
