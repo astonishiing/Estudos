@@ -13,8 +13,9 @@ public class WrapperTest01 {
         double doubleP = 10;
         char charP = 'W';
         boolean booleanP = false;
-        // Classe wrapper: é escapsular o tipo primitov e transformar em
+        // Classe wrapper: é escapsular o tipo primitivo e transformar em
         // Agora estamos trabalhando com objetos, então a regra de polimofismo é aplicada
+        // Estamos passando a passagem do objeto por referência
         Byte byterW = 1;
         Short shortW = 1;
         Integer intW = 1;
