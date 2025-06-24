@@ -1,4 +1,4 @@
-package javacore.introducao.dominio.Qstring;
+package javacore.introducao.dominio.Qstring.test;
 
 public class StringPerformanceTest {
     public static void main(String[] args) {
