@@ -1,4 +1,4 @@
-package javacore.introducao.dominio.Rdates.test;
+package javacore.introducao.dominio.Sformatacao.test;
 
 import java.text.DateFormat;
 import java.util.Calendar;
