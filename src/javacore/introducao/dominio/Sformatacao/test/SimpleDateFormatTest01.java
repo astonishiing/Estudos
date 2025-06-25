@@ -11,9 +11,9 @@ public class SimpleDateFormatTest01 {
         System.out.println(sdf.format(new Date()));
 
         try {
-            System.out.println(sdf.parse("yyyy.MM.dd G 'at' HH:mm:ss z"));
+            System.out.println(sdf.parse("2025.06.25 d.C. at 17:38:52 BRT"));
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 }
