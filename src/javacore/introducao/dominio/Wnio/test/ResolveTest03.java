@@ -3,7 +3,7 @@ package javacore.introducao.dominio.Wnio.test;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class PathTest03 {
+public class ResolveTest03 {
     public static void main(String[] args) {
         Path dir = Paths.get("pasta/subpasta");
         Path arquivo = Paths.get("subsubpasta/arquivo.txt");
