@@ -12,13 +12,14 @@ public class Aluno implements Serializable {
         this.nome = nome;
         this.password = password;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Aluno{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", password=" + password + '\'' +
-                "}";
+                ", password='" + password + '\'' +
+                '}';
     }
 
     public long getId() {
