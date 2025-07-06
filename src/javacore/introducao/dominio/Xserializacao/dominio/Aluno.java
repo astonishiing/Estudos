@@ -1,6 +1,8 @@
 package javacore.introducao.dominio.Xserializacao.dominio;
 
-public class Aluno {
+import java.io.Serializable;
+
+public class Aluno implements Serializable {
     private long id;
     private String nome;
     private String password;
@@ -9,6 +11,14 @@ public class Aluno {
         this.id = id;
         this.nome = nome;
         this.password = password;
+    }
+    @Override
+    public String toString(){
+        return "Aluno{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", password=" + password + '\'' +
+                "}";
     }
 
     public long getId() {
