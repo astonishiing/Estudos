@@ -1,6 +1,7 @@
 package javacore.introducao.dominio.Xserializacao.test;
 
 import javacore.introducao.dominio.Xserializacao.dominio.Aluno;
+import javacore.introducao.dominio.Xserializacao.dominio.Turma;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -10,7 +11,9 @@ import java.nio.file.Paths;
 public class SerializacaoTest01 {
     public static void main(String[] args) {
         Aluno aluno = new Aluno(1L, "WillianSuane", "123412121");
-        //serializar(aluno);
+        Turma turma = new Turma("Maratona 1234");
+        aluno.setTurma(turma);
+        serializar(aluno);
         deserializar();
     }
 
