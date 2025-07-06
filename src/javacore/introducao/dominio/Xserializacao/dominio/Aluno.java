@@ -1,11 +1,17 @@
 package javacore.introducao.dominio.Xserializacao.dominio;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Aluno implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -2827997788770674976L;
+
     private long id;
     private String nome;
-    private String password;
+    private transient String password;
+
+    private static final String NOME_ESCOLA = "TestEscole CED03";
 
     public Aluno(long id, String nome, String password) {
         this.id = id;
@@ -19,6 +25,7 @@ public class Aluno implements Serializable {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", password='" + password + '\'' +
+                ", nomeEscola='" + NOME_ESCOLA + '\'' +
                 '}';
     }
 
