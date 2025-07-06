@@ -1,7 +1,6 @@
 package javacore.introducao.dominio.Xserializacao.dominio;
 
-import java.io.Serial;
-import java.io.Serializable;
+import java.io.*;
 
 public class Aluno implements Serializable {
     @Serial
@@ -10,13 +9,34 @@ public class Aluno implements Serializable {
     private long id;
     private String nome;
     private transient String password;
-
     private static final String NOME_ESCOLA = "TestEscole CED03";
+    private transient Turma turma;
 
     public Aluno(long id, String nome, String password) {
         this.id = id;
         this.nome = nome;
         this.password = password;
+    }
+
+    @Serial
+    private void writeObject(ObjectOutputStream oos){
+        try{
+            oos.defaultWriteObject();
+            oos.writeUTF(turma.getNome());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Serial
+    private void readObject(ObjectInputStream ois){
+        try{
+            ois.defaultReadObject();
+            String nomeTurma = ois.readUTF();
+            turma = new Turma(nomeTurma);
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -26,7 +46,16 @@ public class Aluno implements Serializable {
                 ", nome='" + nome + '\'' +
                 ", password='" + password + '\'' +
                 ", nomeEscola='" + NOME_ESCOLA + '\'' +
+                ", Turma='" + turma + '\'' +
                 '}';
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
 
     public long getId() {
