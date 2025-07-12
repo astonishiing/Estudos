@@ -16,6 +16,7 @@ public class SmartphoneListTest02 {
         smartphones.add(s2);
         smartphones.add(s3);
 
+
         for(Smartphone smartphone : smartphones){
             System.out.println(smartphone);
         }
