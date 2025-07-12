@@ -24,6 +24,15 @@ public class Smartphone {
     // Consistente: x.equals(x) sempre retorna true se x for diferente de null
     // Para x diferentes de null, x.equals(null), tem que retornar false.
 
+
+    @Override
+    public String toString() {
+        return "Smartphone{" +
+                "serialNumber='" + serialNumber + '\'' +
+                ", marca='" + marca + '\'' +
+                '}';
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
