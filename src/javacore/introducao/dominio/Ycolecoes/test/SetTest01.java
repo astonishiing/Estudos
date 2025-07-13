@@ -8,6 +8,7 @@ import java.util.Set;
 public class SetTest01 {
     public static void main(String[] args) {
         Set<Manga> mangas = new HashSet<>();
+//        Set<Manga> mangas = new LinkedHasSet<>();
         mangas.add(new Manga(5L,"Helsing Ultimate", 19.9, 0));
         mangas.add(new Manga(1L,"Berserk", 9.5, 5));
         mangas.add(new Manga(4L,"Pokemin", 3.2, 0));
