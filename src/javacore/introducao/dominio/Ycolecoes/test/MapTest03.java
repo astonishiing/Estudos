@@ -4,6 +4,7 @@ import javacore.introducao.dominio.Ycolecoes.dominio.Consumidor;
 import javacore.introducao.dominio.Ycolecoes.dominio.Manga;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MapTest03 {
@@ -17,13 +18,10 @@ public class MapTest03 {
         Manga manga4 = new Manga(3L,"Attack on Titan",11.20);
         Manga manga5 = new Manga(2L,"Dragon ball Z", 2.99);
 
-        Map<Consumidor, Manga> consumidorMangaMap = new HashMap<>();
-        consumidorMangaMap.put(consumidor1, manga1);
-        consumidorMangaMap.put(consumidor2, manga4);
+        Map<Consumidor, List<Manga>> consumidorMangaMap = new HashMap<>();
 
-        for(Map.Entry<Consumidor, Manga> entry : consumidorMangaMap.entrySet()){
-            System.out.println(entry.getKey().getNome() + " - " + entry.getValue().getNome());
-        }
+
+
 
     }
 }
