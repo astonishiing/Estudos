@@ -14,9 +14,16 @@ public class QueueTest01 {
             System.out.println(s);
         }
 
-        fila.peek(); // ira mostrar o elemento sem remover da lista
-        fila.poll(); // pega o elemento da fila e ira remover
-        fila.offer(); // é parecido com add
+
+        System.out.println("----------");
+
+        while(!fila.isEmpty()){
+            System.out.println(fila.poll());
+        }
+//        fila.peek(); // ira mostrar o elemento sem remover da lista
+//        fila.poll(); // pega o elemento da fila e ira remover
+//        fila.offer(); // é parecido com add
+
 
 
     }
