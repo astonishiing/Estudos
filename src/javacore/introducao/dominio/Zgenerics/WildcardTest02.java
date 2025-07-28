@@ -1,4 +1,4 @@
-package javacore.introducao.dominio.Zgenerics.test;
+package javacore.introducao.dominio.Zgenerics;
 
 abstract class Animal {
     public abstract void consulta();
