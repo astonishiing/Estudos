@@ -1,22 +1,28 @@
 package javacore.introducao.dominio.ZZAclassesinternas.test;
 
-class Animal {
-    public void walk(){
-        System.out.println("Animal walking " );
+import javacore.introducao.dominio.Zgenerics.domain.Barco;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+class BarcoNameComparator implements Comparator<Barco> {
+    @Override
+    public int compare(Barco o1, Barco o2) {
+        return o1.getNome().compareTo(o2.getNome());
     }
 }
 
-
-public class AnonymouseClassesTest01 {
+public class AnonymouseClassesTest02 {
     public static void main(String[] args) {
-        Animal animal = new Animal(){
-            @Override
-            public void walk() {
-                System.out.println("Walking in the shadows");
-            }
+        List<Barco> barcoList = new ArrayList<>(List.of(new Barco("Canoa"), new Barco("Lancha")));
 
-        };
-        animal.walk();
+        barcoList.sort(new Comparator<Barco>() {
+            @Override
+            public int compare(Barco o1, Barco o2) {
+                return o1.getNome().compareTo(o2.getNome());
+            }
+        });
+        System.out.println(barcoList);
     }
 }
