@@ -1,4 +1,8 @@
 package javacore.introducao.dominio.ZZBcomportamento.interfacce;
 
-public class CarPredicate {
+import javacore.introducao.dominio.ZZBcomportamento.dominio.Car;
+
+public interface CarPredicate {
+    boolean test(Car car);
+
 }
