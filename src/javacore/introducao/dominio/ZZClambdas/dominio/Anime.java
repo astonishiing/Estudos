@@ -2,18 +2,18 @@ package javacore.introducao.dominio.ZZClambdas.dominio;
 
 public class Anime {
     private String title;
-    private int quantity;
+    private int episodes;
 
-    public Anime(String title, int quantity) {
+    public Anime(String title, int episodes) {
         this.title = title;
-        this.quantity = quantity;
+        this.episodes = episodes;
     }
 
     @Override
     public String toString() {
         return "Anime{" +
                 "title='" + title + '\'' +
-                ", quantity=" + quantity +
+                ", quantity=" + episodes +
                 '}';
     }
 
@@ -21,7 +21,7 @@ public class Anime {
         return title;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getEpisodes() {
+        return episodes;
     }
 }
