@@ -2,6 +2,7 @@ package javacore.introducao.dominio.ZZDoptional.test;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 public class OptionalTest01 {
     public static void main(String[] args) {
@@ -16,6 +17,8 @@ public class OptionalTest01 {
 
         Optional<String> nameOptional = Optional.ofNullable(findName("Willian"));
         String empty = nameOptional.orElse("EMPTY");
+
+        nameOptional.ifPresent(s -> System.out.println(s.toUpperCase()));
 //        System.out.println(nameOptional);
         System.out.println(empty);
 
