@@ -15,7 +15,7 @@ public class OptionalTest01 {
 
         System.out.println("-----------------");
 
-        Optional<String> nameOptional = Optional.ofNullable(findName("Willian"));
+        Optional<String> nameOptional = findName("Willian");
         String empty = nameOptional.orElse("EMPTY");
 
         nameOptional.ifPresent(s -> System.out.println(s.toUpperCase()));
@@ -24,12 +24,12 @@ public class OptionalTest01 {
 
     }
 
-    private static String findName(String name) {
+    private static Optional<String> findName(String name) {
         List<String> strings = List.of("Willian", "DevDojo");
         int i = strings.indexOf(name);
         if(i != 1){
-            return strings.get(i);
+            return Optional.of(strings.get(i));
         }
-        return null;
+        return Optional.empty();
     }
 }
