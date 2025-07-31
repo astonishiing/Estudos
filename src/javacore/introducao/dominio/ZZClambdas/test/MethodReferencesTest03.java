@@ -2,7 +2,9 @@ package javacore.introducao.dominio.ZZClambdas.test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiPredicate;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class MethodReferencesTest03 {
     public static void main(String[] args) {
@@ -11,6 +13,11 @@ public class MethodReferencesTest03 {
 
         System.out.println(list);
 
-        Function<String, Integer> numStringToInteger = s -> Integer.parseInt(s);
+        Function<String, Integer> numStringToInteger = Integer::parseInt;
+        Integer num = numStringToInteger.apply("10");
+        System.out.println(num);
+
+        BiPredicate<List<String>, String> checkName = List::contains;
+        System.out.println(checkName.test(list, "Rimuru"));
     }
 }
