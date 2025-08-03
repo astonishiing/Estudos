@@ -4,6 +4,7 @@ import javacore.introducao.dominio.ZZEstreams.classes.LightNovel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class StreamTest08 {
 
@@ -24,6 +25,11 @@ public class StreamTest08 {
                 .filter(price -> price > 3)
                 .reduce(Double::sum)
                 .ifPresent(System.out::println);
+
+        double doubleStream = lightNovels.stream()
+                .mapToDouble(LightNovel::getPrice)
+                .filter(price -> price > 3)
+                .sum();
 
     }
 }
