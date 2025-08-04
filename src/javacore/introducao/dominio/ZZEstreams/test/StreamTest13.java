@@ -2,6 +2,7 @@ package javacore.introducao.dominio.ZZEstreams.test;
 
 import javacore.introducao.dominio.ZZEstreams.classes.Category;
 import javacore.introducao.dominio.ZZEstreams.classes.LightNovel;
+import javacore.introducao.dominio.ZZEstreams.classes.Promotion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class StreamTest12 {
+public class StreamTest13 {
 
     private static List<LightNovel> lightNovels = new ArrayList<>(List.of(
             new LightNovel("Tensei Shittara", 8.99, Category.FANTASY),
@@ -22,29 +23,20 @@ public class StreamTest12 {
     ));
 
     public static void main(String[] args) {
-        Map<Category, List<LightNovel>> categoryLightNovelMap = new HashMap<>();
-        List<LightNovel> fantasy = new ArrayList<>();
-        List<LightNovel> drama = new ArrayList<>();
-        List<LightNovel> romance = new ArrayList<>();
-
-        for (LightNovel lightNovel : lightNovels) {
-            switch (lightNovel.getCategory()) {
-                case DRAMA: drama.add(lightNovel);
-                    break;
-                case FANTASY: fantasy.add(lightNovel);
-                    break;
-                case ROMANCE: romance.add(lightNovel);
-            }
-        }
-        categoryLightNovelMap.put(Category.DRAMA, drama);
-        categoryLightNovelMap.put(Category.FANTASY, fantasy);
-        categoryLightNovelMap.put(Category.ROMANCE, romance);
-        System.out.println(categoryLightNovelMap);
-
-
-        System.out.println("----------- O CODIGO DE BAIXO SUBSTITUI AS LINHAS DE 25 a 42 ------------------");
-
-        Map<Category, List<LightNovel>> collect = lightNovels.stream().collect(Collectors.groupingBy(LightNovel::getCategory));
+        Map<Promotion, List<LightNovel>> collect = lightNovels.stream()
+                .collect(Collectors.groupingBy(ln -> ln.getPrice() < 6 ? Promotion.UNDER_PROMOTION : Promotion.NORMAL_PRICE
+                ));
         System.out.println(collect);
+
+        // Map<Category> Map<Promotion, List<LightNovel>>>
+
+        Map<Category, Map<Promotion, List<LightNovel>>> collect1 = lightNovels.stream()
+                .collect(Collectors.groupingBy(LightNovel::getCategory,
+                Collectors.groupingBy(ln -> ln.getPrice() < 6 ? Promotion.UNDER_PROMOTION : Promotion.NORMAL_PRICE
+                )));
+
+        System.out.println(collect1);
+
+
     }
 }
