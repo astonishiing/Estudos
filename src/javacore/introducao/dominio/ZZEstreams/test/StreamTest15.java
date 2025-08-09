@@ -2,13 +2,14 @@ package javacore.introducao.dominio.ZZEstreams.test;
 
 import javacore.introducao.dominio.ZZEstreams.classes.Category;
 import javacore.introducao.dominio.ZZEstreams.classes.LightNovel;
+import javacore.introducao.dominio.ZZEstreams.classes.Promotion;
 
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.*;
 
 public class StreamTest15 {
 
@@ -23,6 +24,29 @@ public class StreamTest15 {
     ));
 
     public static void main(String[] args) {
+        Map<Category, DoubleSummaryStatistics> collect = lightNovels.stream()
+                .collect(groupingBy(LightNovel::getCategory, summarizingDouble(LightNovel::getPrice)));
 
+        System.out.println(collect);
+
+
+        Map<Category, Set<Promotion>> collect1 = lightNovels
+                .stream()
+                .collect(groupingBy(LightNovel::getCategory, mapping(StreamTest15::getPromotion,
+                        toSet())));
+
+        System.out.println(collect1);
+
+        Map<Category, LinkedHashSet<Promotion>> collect2 = lightNovels
+                .stream()
+                .collect(groupingBy(LightNovel::getCategory, mapping(StreamTest15::getPromotion,
+                        toCollection(LinkedHashSet::new))));
+
+        System.out.println(collect2);
     }
+
+    private static Promotion getPromotion(LightNovel ln) {
+        return ln.getPrice() < 6 ? Promotion.UNDER_PROMOTION : Promotion.NORMAL_PRICE;
+    }
+
 }
