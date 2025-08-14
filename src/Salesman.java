@@ -1,4 +1,6 @@
-public class Salesman {
+import javacore.introducao.Employeer;
+
+public final class Salesman extends Employeer {
 
     private double percentPerSold;
 
