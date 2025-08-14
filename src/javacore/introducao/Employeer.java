@@ -1,6 +1,6 @@
 package javacore.introducao;
 
-public class Employeer {
+public sealed abstract class Employeer permits Manager, Salesman {
 
     private String code;
 

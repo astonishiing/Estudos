@@ -1,6 +1,6 @@
-import javacore.introducao.Employeer;
+package javacore.introducao;
 
-public final class Salesman extends Employeer {
+public non-sealed class Salesman extends Employeer {
 
     private double percentPerSold;
 

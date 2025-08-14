@@ -1,6 +1,6 @@
 package javacore.introducao;
 
-public final class Manager extends Employeer {
+public non-sealed class Manager extends Employeer {
 
     private String login;
 
