@@ -9,14 +9,39 @@ public class Main {
     }
 
     public static void printEmployee(Employeer employeer){
-        employeer.setName("Joao");
-        ((Manager)employeer).setLogin("joao");
-        ((Manager)employeer).setPassword("123456");
 
-        System.out.println(employeer.getClass().getCanonicalName());
+        System.out.printf("=======%s=======\n", employeer.getClass().getCanonicalName());
 
-        System.out.println(employeer.getName());
-        System.out.println(((Manager)employeer).getLogin());
-        System.out.println(((Manager)employeer).getPassword());
+//        if (employeer instanceof Manager maneger) {
+//
+//        }
+
+        switch (employeer){
+            case Manager manager ->{
+                employeer.setCode("123");
+                employeer.setName("Joao");
+                manager.setSalary(5000);
+                manager.setLogin("joao");
+                manager.setPassword("123456");
+
+                System.out.println(manager.getCode());
+                System.out.println(manager.getSalary());
+                System.out.println(manager.getLogin());
+                System.out.println(manager.getPassword());
+            }
+            case Salesman salesman ->{
+                salesman.setCode("123");
+                salesman.setName("Joao");
+                salesman.setSalary(5000);
+
+
+                System.out.println(salesman.getCode());
+                System.out.println(salesman.getSalary());
+
+
+            }
+        }
+
+        System.out.println("==============");
     }
 }

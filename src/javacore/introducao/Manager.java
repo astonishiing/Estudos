@@ -2,11 +2,13 @@ package javacore.introducao;
 
 public non-sealed class Manager extends Employeer {
 
+
     private String login;
 
     private String password;
 
     private double comission;
+
 
     public String getLogin() {
         return login;
