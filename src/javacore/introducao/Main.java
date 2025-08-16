@@ -41,7 +41,7 @@ public class Main {
 
             }
         }
-        employeer.getFullSalary();
+        System.out.println(employeer.getFullSalary());
         System.out.println("==============");
     }
 }
