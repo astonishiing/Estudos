@@ -12,6 +12,17 @@ public sealed abstract class Employeer permits Manager, Salesman {
 
     private int salary;
 
+    public Employeer(String code, String name, String address, int age, int salary) {
+        this.code = code;
+        this.name = name;
+        this.address = address;
+        this.age = age;
+        this.salary = salary;
+    }
+    public Employeer(){
+
+    }
+
     public int getSalary() {
         return salary;
     }
