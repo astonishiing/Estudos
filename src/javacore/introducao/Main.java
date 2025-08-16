@@ -33,7 +33,7 @@ public class Main {
                 salesman.setCode("123");
                 salesman.setName("Joao");
                 salesman.setSalary(5000);
-
+                salesman.setSoldAmount(1000);
 
                 System.out.println(salesman.getCode());
                 System.out.println(salesman.getSalary());
@@ -41,7 +41,7 @@ public class Main {
 
             }
         }
-
+        employeer.getFullSalary();
         System.out.println("==============");
     }
 }
