@@ -2,15 +2,15 @@ package javacore.introducao;
 
 public sealed abstract class Employeer permits Manager, Salesman {
 
-    private String code;
+    protected String code;
 
-    private String name;
+    protected String name;
 
-    private String address;
+    protected String address;
 
-    private int age;
+    protected int age;
 
-    private int salary;
+    protected int salary;
 
     public Employeer(String code, String name, String address, int age, int salary) {
         this.code = code;
@@ -62,4 +62,6 @@ public sealed abstract class Employeer permits Manager, Salesman {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public abstract double getFullSalary();
 }
