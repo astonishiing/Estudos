@@ -19,6 +19,10 @@ public non-sealed class Manager extends Employeer {
         return this.salary + this.comission;
     }
 
+    public double getFullSalary(double extra) {
+        return this.getFullSalary() + extra;
+    }
+
     public Manager(String code, String name, String address, int age, int salary, String login, String password, double comission) {
         super(code, name, address, age, salary);
         this.login = login;
