@@ -1,4 +1,4 @@
-package javacore.introducao;
+package javacore.introducao.dominio.Treino;
 
 public non-sealed class Salesman extends Employeer {
 
