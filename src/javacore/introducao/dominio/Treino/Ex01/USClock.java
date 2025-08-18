@@ -39,7 +39,7 @@ public non-sealed class USClock extends Clock {
         switch (clock) {
             case USClock usClock -> {
                 this.hour = usClock.getHour();
-                this.periodIndicador = usClock.getPeriodIndicador()
+                this.periodIndicador = usClock.getPeriodIndicador();
             }
             case BRLClock brlClock -> {
                 this.setHour(brlClock.getHour());
@@ -47,5 +47,10 @@ public non-sealed class USClock extends Clock {
         }
         return this;
 
+    }
+
+    @Override
+    public String getTime() {
+        return super.getTime() + " " + this.periodIndicador;
     }
 }
