@@ -2,7 +2,7 @@ package javacore.introducao.dominio.Exercicios.exercicios;
 
 import java.util.Scanner;
 
-public class App {
+public class ExMedia {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         double A;
