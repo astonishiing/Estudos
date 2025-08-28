@@ -17,7 +17,7 @@ public class ExMedia {
         double media = (A * pesoA + B * pesoB) / (pesoA + pesoB);
 
         if(A <= 10.0 && B <= 10.0){
-            System.out.printf("MEDIA = %.5f", media);
+            System.out.printf("MEDIA = %.5f%n", media);
         }else {
             System.out.printf("Presentation Error");
         }
