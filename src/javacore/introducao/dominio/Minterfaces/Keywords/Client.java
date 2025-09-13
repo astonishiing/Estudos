@@ -3,6 +3,7 @@ package javacore.introducao.dominio.Minterfaces.Keywords;
 public class Client {
     private String name;
     private int age;
+    private static String staticname;
 
     private Address address = new Address();
 
@@ -21,5 +22,13 @@ public class Client {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public static String getStaticname() {
+        return staticname;
+    }
+
+    public static void setStaticname(String staticname) {
+        Client.staticname = staticname;
     }
 }
