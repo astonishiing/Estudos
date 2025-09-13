@@ -1,13 +1,13 @@
 package javacore.introducao.dominio.Minterfaces.Keywords;
 
 public class Address {
-    private String description;
+    String description = "description";
 
-    public String getDescription() {
+    String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    void setDescription(String description) {
         this.description = description;
     }
 }

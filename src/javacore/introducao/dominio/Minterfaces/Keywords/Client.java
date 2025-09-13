@@ -4,7 +4,10 @@ public class Client {
     private String name;
     private int age;
 
+    private Address address = new Address();
+
     public String getName() {
+        System.out.println(address.description);
         return name;
     }
 
