@@ -1,6 +1,6 @@
 package javacore.introducao.dominio.Minterfaces.Exercicio;
 
-public record Square(int side) implements GeometricForm {
+public record Square(double side) implements GeometricForm {
 
     @Override
     public double getArea() {
