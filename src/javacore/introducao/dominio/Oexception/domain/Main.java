@@ -1,5 +1,6 @@
 package javacore.introducao.dominio.Oexception.domain;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 public class Main {
@@ -9,6 +10,10 @@ public class Main {
     }
 
     private static void test(){
-        throw new RuntimeException();
+                    new Throwable(); //Pai de exceptions e errors
+                    /                         \
+                     new Exception();            new Error(); // Errors
+                /                  \
+      new RuntimeException();  //unchecked FileNotFoundException();
     }
 }
