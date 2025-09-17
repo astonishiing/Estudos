@@ -9,6 +9,6 @@ public class Main {
     }
 
     private static void test(){
-        System.out.println(10 / 0);
+        throw new RuntimeException();
     }
 }
