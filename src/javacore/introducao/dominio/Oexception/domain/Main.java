@@ -9,6 +9,7 @@ public class Main {
         System.out.println("terminou");
     }
 
+    // Exemplo ilustrativo das exceptions
     private static void test(){
                     new Throwable(); //Pai de exceptions e errors
                     /                         \
