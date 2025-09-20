@@ -1,16 +1,4 @@
-package javacore.introducao.dominio.Oexception.domain;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+package javacore.introducao.dominio.Oexception;
 
 public class Main {
-    public static void main(String[] args) {
-       test();
-        System.out.println("terminou");
-    }
-
-
-    private static void test(){
-
-    }
 }
