@@ -6,7 +6,7 @@ import javacore.introducao.dominio.Oexception.exception.UserNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UseDAO {
+public class UserDAO {
 
     //Contador
     private long nextId = 1L;
