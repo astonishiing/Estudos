@@ -1,6 +1,7 @@
 package javacore.introducao.dominio.Oexception.DAO;
 
 import javacore.introducao.dominio.Oexception.Model.UserModel;
+import javacore.introducao.dominio.Oexception.exception.UserNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +20,27 @@ public class UseDAO {
     }
 
     public UserModel update(final UserModel model){
+        var toUpdate = findById(model.getId());
+        models.remove(toUpdate);
+        models.add(model);
+        return model;
+    }
 
+    public void delete(final long id){
+        var toDelete = findById(id);
+        models.remove(toDelete);
     }
 
     public UserModel findById(final long id){
-        models.stream().filter(u -> u.getId() == id)
+        var message = String.format("Não existe usuário com o id %s cadastrado", id);
+        return models.stream()
+                .filter(u -> u.getId() == id)
                 .findFirst()
-                .orElseThrow();
+                .orElseThrow(() -> new UserNotFoundException(message));
 
+    }
+
+    public List<UserModel> findAll(){
+        return models;
     }
 }
