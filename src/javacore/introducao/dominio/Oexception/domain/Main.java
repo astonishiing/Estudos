@@ -3,6 +3,8 @@ package javacore.introducao.dominio.Oexception.domain;
 import javacore.introducao.dominio.Oexception.DAO.UserDAO;
 import javacore.introducao.dominio.Oexception.Model.MenuOption;
 import javacore.introducao.dominio.Oexception.Model.UserModel;
+import javacore.introducao.dominio.Oexception.exception.EmptyStorageException;
+import javacore.introducao.dominio.Oexception.exception.UserNotFoundException;
 
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
@@ -33,21 +35,33 @@ public class Main {
                 }
 
                 case UPDATE -> {
-                    UserModel user = userDAO.update(requestToUpdate());
-                    System.out.printf("Usuario atualizado %s", user);
+                    try {
+                        UserModel user = userDAO.update(requestToUpdate());
+                        System.out.printf("Usuario atualizado %s", user);
+                    }catch (UserNotFoundException | EmptyStorageException ex){
+                        System.out.println(ex.getMessage());
+                    }
                 }
 
                 case DELETE -> {
-                    userDAO.delete(requestId());
-                    System.out.println("Usuario excluído");
+                    try {
+                        userDAO.delete(requestId());
+                        System.out.println("Usuario excluído");
+                    }catch (UserNotFoundException | EmptyStorageException ex){
+                        System.out.println(ex.getMessage());
+                    }
                 }
 
                 case FIND_BY_ID -> {
-                    long id = requestId();
-                    UserModel byId = userDAO.findById(id);
-                    System.out.printf("Usuário com id %s: ", id);
-                    System.out.println(byId);
+                    try {
+                        long id = requestId();
+                        UserModel byId = userDAO.findById(id);
+                        System.out.printf("Usuário com id %s: ", id);
+                        System.out.println(byId);
 
+                    }catch (UserNotFoundException | EmptyStorageException ex){
+                        System.out.println(ex.getMessage());
+                    }
                 }
                 case FIND_ALL -> {
                     List<UserModel> all = userDAO.findAll();
