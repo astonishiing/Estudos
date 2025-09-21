@@ -1,11 +1,13 @@
 package javacore.introducao.dominio.Oexception.domain;
 
+import javacore.introducao.dominio.Gassociacao.dominio.Local;
 import javacore.introducao.dominio.Oexception.DAO.UserDAO;
 import javacore.introducao.dominio.Oexception.Model.MenuOption;
 import javacore.introducao.dominio.Oexception.Model.UserModel;
 import javacore.introducao.dominio.Oexception.exception.EmptyStorageException;
 import javacore.introducao.dominio.Oexception.exception.UserNotFoundException;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -40,6 +42,8 @@ public class Main {
                         System.out.printf("Usuario atualizado %s", user);
                     }catch (UserNotFoundException | EmptyStorageException ex){
                         System.out.println(ex.getMessage());
+                    }finally{
+                        System.out.println("================");
                     }
                 }
 
@@ -49,6 +53,8 @@ public class Main {
                         System.out.println("Usuario excluído");
                     }catch (UserNotFoundException | EmptyStorageException ex){
                         System.out.println(ex.getMessage());
+                    }finally {
+                        System.out.println("===============");
                     }
                 }
 
@@ -83,16 +89,12 @@ public class Main {
     private static UserModel requestToSave(){
         System.out.println("Informe o nome do usuário");
         var name = scanner.next();
-
         System.out.println("Informe o email do usuário");
         var email = scanner.next();
-
         System.out.println("Informe a data de nascimento do usuário (dd/MM/yyyy)");
         var birthdayString = scanner.next();
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        var birthday = OffsetDateTime.parse(birthdayString, formatter);
-
+        var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        var birthday = LocalDate.parse(birthdayString, formatter);
         return new UserModel(0, name, email, birthday);
     }
 
@@ -110,7 +112,7 @@ public class Main {
         var birthdayString = scanner.next();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        var birthday = OffsetDateTime.parse(birthdayString, formatter);
+        var birthday = LocalDate.parse(birthdayString, formatter);
 
         return new UserModel(id, name, email, birthday);
     }
