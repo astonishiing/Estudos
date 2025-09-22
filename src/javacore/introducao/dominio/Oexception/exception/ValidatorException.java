@@ -1,7 +1,7 @@
 package javacore.introducao.dominio.Oexception.exception;
 
-public class ValidatorException extends RuntimeException {
-  public ValidatorException(String message) {
-    super(message);
-  }
+public class ValidatorException extends Exception {
+    public ValidatorException(String message) {
+        super(message);
+    }
 }
