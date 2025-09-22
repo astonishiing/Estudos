@@ -9,7 +9,7 @@ public class UserValidator {
 
     }
 
-    public static void VerifyModel(final UserModel model) throws ValidatorException{
+    public static void verifyModel(final UserModel model) throws ValidatorException{
 
         if(stringIsBlank(model.getName()))
             throw new ValidatorException("Informe um nome válido");
@@ -17,7 +17,7 @@ public class UserValidator {
             throw new ValidatorException("O nome deve ter pelo mais que 1 caracter");
         if(stringIsBlank(model.getEmail()))
             throw new ValidatorException("Informe um email válido");
-        if((!model.getEmail().contains("@")) && (model.getEmail().contains("."))){
+        if((!model.getEmail().contains("@")) || (!model.getEmail().contains("."))){
             throw new ValidatorException("Informe um email valido");
         }
     }
