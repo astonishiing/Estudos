@@ -33,7 +33,7 @@ public class Members {
         System.out.println(Thread.currentThread().getName() + " checking if there are emails");
         synchronized (this.emails) {
             while (this.emails.size() == 0) {
-                if (!open) break;
+                if (!open) return null;
                 System.out.println(Thread.currentThread().getName() + " Não tem email disponível na lista, entrando em modo de espera");
                 this.emails.wait();
             }
