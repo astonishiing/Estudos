@@ -5,7 +5,6 @@ import javacore.introducao.dominio.ZZGconcorrencia.service.StoreService;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class CompletableFutureTest02 {
     public static void main(String[] args) {
