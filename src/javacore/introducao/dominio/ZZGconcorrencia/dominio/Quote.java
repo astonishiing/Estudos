@@ -12,5 +12,35 @@ public final class Quote {
         this.discountCode = discountCode;
     }
 
-    public static Quote newQuote
+
+    /**
+     * Create new Quote object from the value following the pattern storeName:price:discountCode
+     * @param value containing storeName:price:discountCode
+     * @return new Quote with values from @param value
+     */
+    public static Quote newQuote(String value){
+        String[] values = value.split(":");
+        return new Quote(values[0], Double.parseDouble(values[1]), Discount.Code.valueOf(values[2]));
+    }
+
+    @Override
+    public String toString() {
+        return "Quote{" +
+                "store='" + store + '\'' +
+                ", price=" + price +
+                ", discountCode=" + discountCode +
+                '}';
+    }
+
+    public String getStore() {
+        return store;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public Discount.Code getDiscountCode() {
+        return discountCode;
+    }
 }
