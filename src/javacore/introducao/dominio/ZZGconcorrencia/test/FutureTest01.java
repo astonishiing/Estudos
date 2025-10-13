@@ -3,16 +3,23 @@ package javacore.introducao.dominio.ZZGconcorrencia.test;
 import java.util.concurrent.*;
 
 public class FutureTest01 {
-    public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
+    public static void main(String[] args) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Future<Double> dollarRequest = executorService.submit(() -> {
             TimeUnit.SECONDS.sleep(5);
             return 4.35D;
         });
         System.out.println(doingSomething());
-        Double dollarResponse = dollarRequest.get(3, TimeUnit.SECONDS);
+        Double dollarResponse = null;
+        try {
+            dollarResponse = dollarRequest.get(3, TimeUnit.SECONDS);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw new RuntimeException(e);
+        }finally {
+            executorService.shutdown();
+
+        }
         System.out.println("Dollar: " + dollarResponse);
-        executorService.shutdown();
     }
 
     public static long doingSomething(){
