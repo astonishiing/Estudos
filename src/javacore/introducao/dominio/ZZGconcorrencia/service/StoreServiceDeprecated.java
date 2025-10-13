@@ -1,26 +1,14 @@
 package javacore.introducao.dominio.ZZGconcorrencia.service;
 
-import javacore.introducao.dominio.Gassociacao.dominio.Time;
-
 import java.util.concurrent.*;
 
-public class StoreService {
+public class StoreServiceDeprecated {
 
     private static final ExecutorService ex = Executors.newCachedThreadPool();
 
     public double getPrinceSync(String storeName){
         System.out.printf("Getting prices sync for store %s%n", storeName);
         return priceGenerator();
-    }
-
-    public Future<Double> getPricesAsyncFuture(String storeName) {
-        System.out.printf("Getting prices sync for store %s%n", storeName);
-        return ex.submit(this::priceGenerator);
-    }
-
-    public CompletableFuture<Double> getPricesAsyncCompletableFuture(String storeName) {
-        System.out.printf("Getting prices sync for store %s%n", storeName);
-        return CompletableFuture.supplyAsync(this::priceGenerator);
     }
 
     private double priceGenerator(){
