@@ -12,6 +12,7 @@ public class CompletableFutureTest04 {
     }
 
     private static void searchPricesWithDiscount(StoreServiceWithDiscount service){
+        long start = System.currentTimeMillis();
         List<String> stores = List.of("Store 1", "Store 2", "Store 3", "Store 4");
 //        stores.forEach(s -> System.out.println(service.getPrinceSync(s)));
         stores.stream()
@@ -19,5 +20,7 @@ public class CompletableFutureTest04 {
                 .map(Quote::newQuote)
                 .map(service::applyDiscount)
                 .forEach(System.out::println);
+        long end = System.currentTimeMillis();
+        System.out.printf("Time passed to searchPrinceSync %dms%n", (end - start));
     }
 }
