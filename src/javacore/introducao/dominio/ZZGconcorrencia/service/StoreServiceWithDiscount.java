@@ -40,7 +40,8 @@ public class StoreServiceWithDiscount {
 
     private void delay() {
         try {
-            TimeUnit.SECONDS.sleep(1);
+            int milli = ThreadLocalRandom.current().nextInt(200, 2500);
+            TimeUnit.MILLISECONDS.sleep(milli);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
