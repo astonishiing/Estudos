@@ -21,7 +21,11 @@ public class EstudanteTest {
 
         impressora.imprime(estudante02);
 
+        //estudante está alterando o estado do objeto, e ele ficará alterado
+        System.out.println("----------");
 
+        impressora.imprime(estudante01);
+        impressora.imprime(estudante02);
 
 
         /*System.out.println(estudante01.nome);
