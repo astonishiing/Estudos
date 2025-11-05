@@ -3,9 +3,10 @@ package javacore.introducao.dominio.Eblocosinicializacao.domain;
 public class Anime {
     private String nome;
     private int[] episodios;
+    // 0 - Criação do objeto
     // 1 - alocado espaço em memoria pro objeto
     // 2 - Cada atributo de classe é criado e inicializado com valores default ou o que for passado
-    // 3 -Bloco de inicialização é executado
+    // 3 - Bloco de inicialização é executado
     // 4 - Construtore é executado
 
     {
