@@ -16,6 +16,7 @@ public class Anime {
             episodios[i] = i+1;
         }
     }
+    // Blocos de inicialização estáticos são inicializado apenas 1 vez
     //Podemos ter bloco de inicialização não estatico junto com os estáticos
     // Bloco de inicialização de instância: ele é executado todas as vezes que o objeto for criado, ele é executado antes do construtor
     // não vai precisar ficar replicando os construtores
