@@ -15,7 +15,9 @@ public class Anime {
         for (int i = 0; i < episodios.length; i++) {
             episodios[i] = i+1;
         }
-    } // Bloco de inicialização de instância: ele é executado todas as vezes que o objeto for criado, ele é executado antes do construtor
+    }
+    //Podemos ter bloco de inicialização não estatico junto com os estáticos
+    // Bloco de inicialização de instância: ele é executado todas as vezes que o objeto for criado, ele é executado antes do construtor
     // não vai precisar ficar replicando os construtores
     // Independente do construtor que for chamado os episodioss ainda vao estar inicializados
     public Anime(String nome){
