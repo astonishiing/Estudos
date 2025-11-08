@@ -1,10 +1,10 @@
-package javacore.introducao.dominio.Hherança.test;
+package javacore.introducao.dominio.Hheranca.test;
 
-import javacore.introducao.dominio.Hherança.dominio.Endereco;
-import javacore.introducao.dominio.Hherança.dominio.Funcionario;
-import javacore.introducao.dominio.Hherança.dominio.Pessoa;
+import javacore.introducao.dominio.Hheranca.dominio.Endereco;
+import javacore.introducao.dominio.Hheranca.dominio.Funcionario;
+import javacore.introducao.dominio.Hheranca.dominio.Pessoa;
 
-public class HerançaTeste01 {
+public class HerancaTeste01 {
     public static void main(String[] args) {
         Endereco endereco = new Endereco();
         endereco.setRua("Rua 3");

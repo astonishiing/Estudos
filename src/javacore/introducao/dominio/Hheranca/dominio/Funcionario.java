@@ -12,6 +12,9 @@ public class Funcionario extends Pessoa { ;
     {
         System.out.println("Dentro do bloco de inicialização de Funcionario 2 ");
     }
+    public Funcionario(){
+        super();
+    }
 
     public Funcionario(String nome){
         super(nome); // obrigatoriamente precisa passar o nome
