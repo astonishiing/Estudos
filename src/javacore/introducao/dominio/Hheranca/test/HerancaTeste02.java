@@ -1,6 +1,6 @@
-package javacore.introducao.dominio.Hherança.test;
+package javacore.introducao.dominio.Hheranca.test;
 
-import javacore.introducao.dominio.Hherança.dominio.Funcionario;
+import javacore.introducao.dominio.Hheranca.dominio.Funcionario;
 
 public class HerancaTeste02 {
     // 0 - Bloco de inicializacao estático da superclasse é executado quanto a JVM carregar classes pai
