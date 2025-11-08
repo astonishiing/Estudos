@@ -1,4 +1,4 @@
-package javacore.introducao.dominio.Hherança.dominio;
+package javacore.introducao.dominio.Hheranca.dominio;
 
 public class Pessoa {
     //private String nome;
