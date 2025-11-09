@@ -17,7 +17,9 @@ public class Anime {
     }
 
     @Override
-    public String toString(){
-        return this.nome;
+    public String toString() {
+        return "Anime{" +
+                "nome='" + nome + '\'' +
+                '}';
     }
 }
