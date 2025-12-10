@@ -14,14 +14,25 @@ public class IORunningTest {
         System.out.println("=======================");
         System.out.println(persistence.findAll());
 
+        System.out.println("-------------------------------");
+        System.out.println(persistence.removeContent("Lucas"));
+        System.out.println("=============================");
+        System.out.println(persistence.removeContent("/06/202"));
+        System.out.println("===========================");
+
         System.out.println("=======================");
         System.out.println(persistence.findBy("Lucas;"));
         System.out.println("=======================");
         System.out.println(persistence.findBy(";maria@"));
         System.out.println("=======================");
         System.out.println(persistence.findBy("95;"));
+//        System.out.println("=======================");
+//        System.out.println(persistence.findBy("22;"));
+
         System.out.println("=======================");
-        System.out.println(persistence.findBy("22;"));
+        System.out.println(persistence.replaceCont(".com;maria", "Carlos;carlos@carlos.com;22/03/1991"));
+        System.out.println("=====================");
+        System.out.println(persistence.findAll());
 
     }
 }
