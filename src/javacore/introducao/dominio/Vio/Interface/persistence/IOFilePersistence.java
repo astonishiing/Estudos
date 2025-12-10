@@ -3,6 +3,8 @@ package javacore.introducao.dominio.Vio.Interface.persistence;
 import javacore.introducao.dominio.Vio.Interface.FilePersistence;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public class IOFilePersistence implements FilePersistence {
 
@@ -38,12 +40,22 @@ public class IOFilePersistence implements FilePersistence {
     }
 
     @Override
-    public boolean removeContent(String sentence) {
-        return false;
+    public boolean removeContent(final String sentence) {
+        String findAll = findAll();
+        ArrayList<String> contentList = new ArrayList<>(Stream.of(findAll.split(System.lineSeparator())).toList());
+
+        //Verificar se nao está achando nada correspondente
+        if(contentList.stream().noneMatch(c -> c.contains(sentence))) return false;
+
+        clearFile();
+        contentList.stream()
+                .filter(c -> !c.contains(sentence))
+                .forEach(this::write);
+        return true;
     }
 
     @Override
-    public String replaceCont(String oldContent, String newContent) {
+    public String replaceCont(final String oldContent, final String newContent) {
         return "";
     }
 
@@ -66,7 +78,7 @@ public class IOFilePersistence implements FilePersistence {
     }
 
     @Override
-    public String findBy(String sentence) {
+    public String findBy(final String sentence) {
         var found = "";
 
         try (BufferedReader bufferedReader= new BufferedReader(new FileReader(currentDir + storedDir + fileName))){
