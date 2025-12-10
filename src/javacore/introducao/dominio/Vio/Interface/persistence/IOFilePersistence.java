@@ -49,12 +49,41 @@ public class IOFilePersistence implements FilePersistence {
 
     @Override
     public String findAll() {
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+        try( var bufferedReader= new BufferedReader(new FileReader(currentDir + storedDir + fileName))){
+            String line;
+            do{
+                line = bufferedReader.readLine();
+                if((line != null)) stringBuilder.append(line)
+                        .append(System.lineSeparator());
+
+            }while(line != null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return stringBuilder.toString();
     }
 
     @Override
     public String findBy(String sentence) {
-        return "";
+        var found = "";
+
+        try (BufferedReader bufferedReader= new BufferedReader(new FileReader(currentDir + storedDir + fileName))){
+            String line = bufferedReader.readLine();
+
+            while(line != null){
+
+                if((line.contains(sentence))) {
+                    found = line;
+                    break;
+                }
+                line = bufferedReader.readLine();
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return found;
     }
 
     private void clearFile(){
