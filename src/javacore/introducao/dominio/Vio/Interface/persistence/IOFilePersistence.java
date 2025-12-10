@@ -56,7 +56,16 @@ public class IOFilePersistence implements FilePersistence {
 
     @Override
     public String replaceCont(final String oldContent, final String newContent) {
-        return "";
+        String findAll = findAll();
+        ArrayList<String> contentList = new ArrayList<>(Stream.of(findAll.split(System.lineSeparator())).toList());
+
+        if(contentList.stream().noneMatch(c -> c.contains(oldContent))) return "";
+
+        clearFile();
+        contentList.stream()
+                .map(c -> c.contains(oldContent) ? newContent : c)
+                .forEach(this::write);
+        return newContent;
     }
 
     @Override
