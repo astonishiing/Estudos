@@ -1,4 +1,82 @@
 package javacore.introducao.dominio.Wnio.persistence;
 
-public class NIOFilePersistence {
+import java.io.*;
+import java.nio.ByteBuffer;
+
+public class NIOFilePersistence implements FilePersistence{
+
+    private final String currentDir = System.getProperty("user.dir");
+    private final String storedDir = "managerFileNIO/NIO";
+    private final String fileName;
+
+    public NIOFilePersistence(String fileName) throws IOException{
+        this.fileName = fileName;
+        File file = new File(currentDir + storedDir);
+        if(!file.exists() && !file.mkdirs()) throw new IOException("Error ao criar o arquivo NIO");
+
+        clearFile();
+    }
+
+
+    @Override
+    public String write(final String data) {
+        try(var file = new RandomAccessFile(new File(currentDir + storedDir + fileName), "rw")){
+
+            file.seek(file.length());
+            file.writeBytes(data);
+            file.writeBytes(System.lineSeparator());
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
+    @Override
+    public boolean removeContent(String sentence) {
+        return false;
+    }
+
+    @Override
+    public String replaceCont(String oldContent, String newContent) {
+        return "";
+    }
+
+    @Override
+    public String findAll() {
+        StringBuilder stringBuilder = new StringBuilder();
+        try(
+                var file = new RandomAccessFile(new File(currentDir + storedDir + fileName), "r");
+                var channel = file.getChannel()
+        ){
+            var buffer = ByteBuffer.allocate(256);
+            int bytesReader = channel.read(buffer);
+            while(bytesReader != -1){
+                buffer.flip();
+                while(buffer.hasRemaining()){
+                    stringBuilder.append((char) buffer.get());
+                }
+
+                buffer.clear();
+                bytesReader = channel.read(buffer);
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public String findBy(String sentence) {
+        return "";
+    }
+
+    private void clearFile(){
+        try(OutputStream outputStream = new FileOutputStream(currentDir + storedDir + fileName)) {
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 }
