@@ -57,8 +57,17 @@ public class NIO2FilePersistence implements FilePersistence{
 
     @Override
     public String replaceCont(String oldContent, String newContent) {
+        var contentList = toListString();
 
-        return "";
+        if(contentList.stream().noneMatch(c -> c.contains(oldContent)))
+            return "";
+
+        clearFile();
+        contentList.stream()
+                .map(c -> c.contains(oldContent) ? newContent : c)
+                .forEach(this::write);
+
+        return newContent;
     }
 
     @Override
