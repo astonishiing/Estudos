@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.stream.Collectors;
 
 public class NIO2FilePersistence implements FilePersistence{
     private final String currentDir = System.getProperty("user.dir");
@@ -23,8 +25,17 @@ public class NIO2FilePersistence implements FilePersistence{
 
 
     @Override
-    public String write(String data) {
-        return "";
+    public String write(final String data) {
+        var path = Paths.get(currentDir + storedDir + fileName);
+
+        try {
+            Files.write(path, data.getBytes(), StandardOpenOption.APPEND);
+            Files.write(path, System.lineSeparator().getBytes(), StandardOpenOption.APPEND);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return data;
     }
 
     @Override
@@ -39,7 +50,14 @@ public class NIO2FilePersistence implements FilePersistence{
 
     @Override
     public String findAll() throws IOException {
-        return "";
+        var path = Paths.get(currentDir + storedDir + fileName);
+        var content = "";
+        try (var lines = Files.lines(path)){
+            content = lines.collect(Collectors.joining(System.lineSeparator()));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return content;
     }
 
     @Override
