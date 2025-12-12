@@ -18,6 +18,9 @@ public class NIORunningTest {
         System.out.println(persistence.findBy(";bia@"));
         System.out.println("=================");
         System.out.println(persistence.findBy("ricardo"));
+        System.out.println("=================");
+        System.out.println(persistence.replaceCont("bernardo", "Lucas;lucas@lucas.com;17/12/1988"));
+        System.out.println("=================");
 
     }
 }
