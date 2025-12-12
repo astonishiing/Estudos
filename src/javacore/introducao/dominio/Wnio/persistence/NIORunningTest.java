@@ -12,5 +12,9 @@ public class NIORunningTest {
         System.out.println(persistence.findAll());
         System.out.println("=================");
 
+        System.out.println(persistence.findBy(";bia@"));
+        System.out.println("=================");
+        System.out.println(persistence.findBy("ricardo"));
+
     }
 }
