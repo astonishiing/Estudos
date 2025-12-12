@@ -6,7 +6,10 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class NIO2FilePersistence implements FilePersistence{
     private final String currentDir = System.getProperty("user.dir");
@@ -40,16 +43,26 @@ public class NIO2FilePersistence implements FilePersistence{
 
     @Override
     public boolean removeContent(String sentence) {
-        return false;
+        var content = toListString();
+        if(content.stream().noneMatch(c -> c.contains(sentence)))
+            return false;
+
+        clearFile();
+        content.stream()
+                .filter(c -> !c.contains(sentence))
+                .forEach(this::write);
+
+        return true;
     }
 
     @Override
     public String replaceCont(String oldContent, String newContent) {
+
         return "";
     }
 
     @Override
-    public String findAll() throws IOException {
+    public String findAll() {
         var path = Paths.get(currentDir + storedDir + fileName);
         var content = "";
         try (var lines = Files.lines(path)){
@@ -61,8 +74,13 @@ public class NIO2FilePersistence implements FilePersistence{
     }
 
     @Override
-    public String findBy(String sentence) {
-        return "";
+    public String findBy(String sentence) throws IOException {
+        var content = findAll();
+
+        return Stream.of(content.split(System.lineSeparator()))
+                .filter(c -> c.contains(sentence))
+                .findFirst()
+                .orElse("");
     }
 
     private void clearFile(){
@@ -71,5 +89,10 @@ public class NIO2FilePersistence implements FilePersistence{
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    private List<String> toListString(){
+        var content = findAll();
+        return new ArrayList<>(Stream.of(content.split(System.lineSeparator())).toList());
     }
 }
