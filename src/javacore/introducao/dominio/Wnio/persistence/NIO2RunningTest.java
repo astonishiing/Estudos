@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class NIO2RunningTest {
     public static void main(String[] args) throws IOException {
-        FilePersistence persistence = new NIO2FilePersistence("user.txt");
+        FilePersistence persistence = new NIO2FilePersistence("user.csv");
         System.out.println("================");
         System.out.println(persistence.write("Luana;luana@luana.com;28/09/1989;"));
         System.out.println("================");
