@@ -69,8 +69,37 @@ public class NIOFilePersistence implements FilePersistence{
 
     @Override
     public String findBy(String sentence) {
-        return "";
+        var content = new StringBuilder();
+        try(
+                var file = new RandomAccessFile(new File(currentDir + storedDir + fileName), "r");
+                var channel = file.getChannel()
+        ){
+            var buffer = ByteBuffer.allocate(256);
+            int bytesReader = channel.read(buffer);
+            while(bytesReader != -1){
+                buffer.flip();
+                while(buffer.hasRemaining()){
+                    while(!content.toString().endsWith(System.lineSeparator())) {
+                        content.append((char) buffer.get());
+                    }
+                    if(content.toString().contains(sentence)) {
+                        break;
+                    } else {
+                        content.setLength(0);
+                    }
+                    if(!content.isEmpty())
+                        break;
+                }
+
+                buffer.clear();
+                bytesReader = channel.read(buffer);
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return content.toString();
     }
+
 
     private void clearFile(){
         try(OutputStream outputStream = new FileOutputStream(currentDir + storedDir + fileName)) {
