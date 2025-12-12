@@ -13,14 +13,14 @@ import java.util.stream.Stream;
 
 public class NIO2FilePersistence implements FilePersistence{
     private final String currentDir = System.getProperty("user.dir");
-    private final String storedDir = "managerFileNIO/NIO2";
+    private final String storedDir = "/managerFile/NIO2/";
     private final String fileName;
 
     public NIO2FilePersistence(String fileName) throws IOException{
         this.fileName = fileName;
         var path = Paths.get(currentDir + storedDir);
 
-        if(Files.exists(path)){
+        if(!Files.exists(path)){
             Files.createDirectory(path);
         }
         clearFile();
