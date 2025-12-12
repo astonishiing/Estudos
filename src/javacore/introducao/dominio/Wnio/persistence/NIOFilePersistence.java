@@ -2,7 +2,9 @@ package javacore.introducao.dominio.Wnio.persistence;
 
 import java.io.*;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class NIOFilePersistence implements FilePersistence{
@@ -37,8 +39,7 @@ public class NIOFilePersistence implements FilePersistence{
 
     @Override
     public boolean removeContent(String sentence) {
-        var content = findAll();
-        var contentList = Stream.of(content.split(System.lineSeparator())).toList();
+        var contentList = toListString();
 
         if(contentList.stream().noneMatch(c -> c.contains(sentence)))
             return false;
@@ -53,7 +54,16 @@ public class NIOFilePersistence implements FilePersistence{
 
     @Override
     public String replaceCont(String oldContent, String newContent) {
-        return "";
+        var contentList = toListString();
+
+        if(contentList.stream().noneMatch(c -> c.contains(oldContent)))
+            return "";
+
+        clearFile();
+        contentList.stream()
+                .map(c -> c.contains(oldContent) ? newContent : c)
+                .forEach(this::write);
+        return newContent;
     }
 
     @Override
@@ -120,5 +130,10 @@ public class NIOFilePersistence implements FilePersistence{
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    private List<String> toListString(){
+        var content = findAll();
+        return new ArrayList<>(Stream.of(content.split(System.lineSeparator())).toList());
     }
 }
