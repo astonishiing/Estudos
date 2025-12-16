@@ -1,5 +1,7 @@
 package javacore.introducao.dominio.Ycolecoes.Set.OperacoesBasicas;
 
+import java.util.Objects;
+
 public class Convidado {
     //Atributos
     private String nome;
@@ -8,6 +10,18 @@ public class Convidado {
     public Convidado(String nome, int codigoConvite) {
         this.nome = nome;
         this.codigoConvite = codigoConvite;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Convidado convidado = (Convidado) o;
+        return codigoConvite == convidado.codigoConvite;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(codigoConvite);
     }
 
     public String getNome() {
