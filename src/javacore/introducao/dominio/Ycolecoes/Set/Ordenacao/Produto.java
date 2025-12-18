@@ -2,7 +2,7 @@ package javacore.introducao.dominio.Ycolecoes.Set.Ordenacao;
 
 import java.util.Objects;
 
-public class Produto {
+public class Produto implements Comparable<Produto>{
 
     private String nome;
     private long codigo;
@@ -14,6 +14,12 @@ public class Produto {
         this.codigo = codigo;
         this.preco = preco;
         this.quantidade = quantidade;
+    }
+
+    //Comparação por Nome do produto
+    @Override
+    public int compareTo(Produto o) {
+        return nome.compareToIgnoreCase(o.getNome());
     }
 
     @Override
