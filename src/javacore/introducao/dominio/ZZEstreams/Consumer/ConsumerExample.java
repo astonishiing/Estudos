@@ -36,5 +36,10 @@ public class ConsumerExample {
                 System.out.println(integer);
             }
         });
+
+        // 4 ° forma
+        numeros.stream()
+                .filter(n -> n % 2 == 0)
+                .forEach(System.out::println);
     }
 }
