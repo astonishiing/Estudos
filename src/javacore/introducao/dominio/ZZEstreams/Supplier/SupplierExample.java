@@ -17,13 +17,37 @@ public class SupplierExample {
         Supplier<String> saudacao = () -> "Olá, seja bem-vindo!";
 
         //Usar o Supplier para obter uma lista com 5 saudações
+        // 1° forma
+
         List<String> listaSaudacoes = Stream.generate(saudacao)
                 .limit(5)
                 .collect(Collectors.toList());
 
+
+        //2° forma
+
+        List<String> listaSaudacoes1 = Stream.generate(
+                new Supplier<String>() {
+                    @Override
+                    public String get() {
+                        return "Olá, seja bem-vindo!";
+                    }
+                }
+        )
+                .limit(3)
+                .collect(Collectors.toList());
+
+        //3 ° forma
+        List<String> listaSaudacoes2 = Stream.generate(() -> "Olá, seja bem-vindo!")
+                .limit(4)
+                .toList();
         //Collectors nos ajuda a transformar em uma lista
 
         //Imprimir as saudações geradas
         listaSaudacoes.forEach(s -> System.out.println(s));
+        System.out.println("==========================");
+        listaSaudacoes1.forEach(System.out::println);
+        System.out.println("================");
+        listaSaudacoes2.forEach(s -> System.out.println(s));
     }
 }
