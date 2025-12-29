@@ -52,6 +52,6 @@ public class Main {
             arrayList.add(i);
         }
 
-        System.out.println(Duration.between(arrayStart, OffsetDateTime.now()).toMillis());
+        System.out.println(Duration.between(linkedStart, OffsetDateTime.now()).toMillis());
     }
 }
