@@ -2,6 +2,7 @@ package javacore.introducao.dominio.ZZIoptional.test;
 
 import javacore.introducao.dominio.ZZIoptional.domain.SexEnum;
 import javacore.introducao.dominio.ZZIoptional.domain.User;
+import javacore.introducao.dominio.ZZIoptional.domain.UserV2;
 
 import java.util.Optional;
 
@@ -27,6 +28,11 @@ public class Main {
 //        System.out.println(optional.orElseThrow(() -> new RuntimeException("teste de exceção")));
         System.out.println(optional.orElse(defaultUser()));
         System.out.println(optional.orElseGet(Main::defaultUser));
+
+        System.out.println("===============");
+
+        Optional<UserV2> userV2 = optional.map(user -> new UserV2(user.name(), user.age(), user.sex()));
+        System.out.println(userV2.orElseThrow());
     }
 
     public static User defaultUser() {
