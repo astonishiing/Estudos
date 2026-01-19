@@ -1,10 +1,12 @@
 package javacore.introducao.dominio.ZZFthreads.test;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
-    private static List<Integer> numbers = new ArrayList<>();
+public class SynchronizedTest01 {
+
+    private final static List<Integer> numbers = new ArrayList<>();
 
     private static void inc(int number) {
         synchronized (numbers) {
@@ -18,28 +20,38 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Runnable inc = () -> {
-            for (int i = 0; i < 100_000; i++) {
+            for (int i = 0; i < 1_000; i++) {
                 inc(i);
             }
         };
 
         Runnable dec = () -> {
-            for (int i = 100_000; i > 0; i--) {
+            for (int i = 0; i > -10_000; i--) {
                 inc(i);
             }
         };
 
         Runnable show = () -> {
-            for (int i = 0; i < 250_000; i++) {
+            for (int i = 0; i < 25_000; i++) {
                 show();
             }
         };
 
-        new Thread(inc).start();
-        new Thread(dec).start();
-        new Thread(show).start();
+        var execInt = new Thread(inc);
+        execInt.start();
+        execInt.join(Duration.ofSeconds(8));
+        var execDec = new Thread(dec);
+        execDec.start();
+//        execDec.join(Duration.ofSeconds(8));
+        var execShow = new Thread(show);
+        execShow.start();
+
+
+        System.out.println(execInt.getName());
+        System.out.println(execDec.getName());
+        System.out.println(execShow.getName());
 
     }
 
